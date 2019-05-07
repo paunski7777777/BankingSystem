@@ -16,7 +16,12 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
 
+    using AutoMapper;
+
     using YourMoney.Data;
+    using YourMoney.Services.Contracts;
+    using YourMoney.Services;
+    using YourMoney.Web.Infrastructure;
 
     public class Startup
     {
@@ -57,6 +62,16 @@
                     .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddScoped<IBankService, BankService>();
+            services.AddScoped<IDepositService, DepositService>();
+
+            //services.AddAutoMapper(); TODO: find other way
+
+            //Mapper.Initialize(cfg =>
+            //{
+            //    cfg.AddProfile<MappingProfile>();
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
