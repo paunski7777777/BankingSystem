@@ -63,15 +63,15 @@
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddScoped<IBankService, BankService>();
-            services.AddScoped<IDepositService, DepositService>();
+            services.AddScoped<IBanksService, BanksService>();
+            services.AddScoped<IDepositsService, DepositsService>();
 
-            //services.AddAutoMapper(); TODO: find other way
+            services.AddAutoMapper(); // TODO: find other way
 
-            //Mapper.Initialize(cfg =>
-            //{
-            //    cfg.AddProfile<MappingProfile>();
-            //});
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

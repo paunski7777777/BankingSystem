@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using YourMoney.Web.Models;
-
-namespace YourMoney.Web.Controllers
+﻿namespace YourMoney.Web.Controllers
 {
-    public class HomeController : Controller
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Mvc;
+
+    using YourMoney.Web.Controllers.Base;
+    using YourMoney.Web.Models;
+
+    public class HomeController : BaseController
     {
         public IActionResult Index()
         {

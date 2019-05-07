@@ -1,0 +1,33 @@
+﻿@model YourMoney.Web.Models.Banks.AllBanksViewModel
+
+@{
+    ViewData["Title"] = "Каталог";
+}
+
+<div class="container">
+    <h2 class="text-center">@this.ViewData["Title"]</h2>
+    <hr class="hr-2" />
+    <div class="table-responsive-lg">
+        <table class="table-hover table">
+            <tbody>
+                <tr class="active">
+                    <th>Банка</th>
+                    @*<th>Име на депозита</th>
+                    <th>Минимална сума</th>
+                    <th>Лихва</th>
+                    <th>Изплащане на лихви</th>*@
+                </tr>
+                @foreach (var bank in Model.Banks)
+                {
+                    <tr>
+                        <td>@bank.BankName</td>
+                        @*<td>@bank.DepositName</td>
+                        <td>@bank.DepositMinimumAmount</td>
+                        <td>@bank.DepositInterest</td>
+                        <td>@bank.DepositInterestPayment</td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

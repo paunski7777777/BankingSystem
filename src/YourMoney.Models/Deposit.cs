@@ -28,6 +28,7 @@
         public string MinimumMonthPeriod { get; set; }
         public string ValidDepositDeadlines { get; set; }
         public ValidForCustomer ValidForCustomer { get; set; }
+        public MonthlyAccrual MonthlyAccrual { get; set; }
 
         public int BankId { get; set; }
         public virtual Bank Bank { get; set; }

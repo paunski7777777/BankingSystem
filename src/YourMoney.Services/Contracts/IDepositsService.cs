@@ -2,7 +2,7 @@
 {
     using System;
 
-    public interface IDepositService
+    public interface IDepositsService
     {
 
     }
