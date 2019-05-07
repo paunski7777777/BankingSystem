@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\YourMoney.Models\YourMoney.Models.csproj" />
+  </ItemGroup>
+
 </Project>
