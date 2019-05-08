@@ -219,15 +219,19 @@ namespace YourMoney.Data.Migrations
 
                     b.Property<int>("DepositTerm");
 
-                    b.Property<string>("DepositType");
+                    b.Property<int>("DepositType");
 
                     b.Property<int>("IncreasingAmount");
 
-                    b.Property<double>("Interest");
+                    b.Property<decimal>("Interest");
+
+                    b.Property<decimal>("InterestAmount");
 
                     b.Property<int>("InterestCapitalize");
 
                     b.Property<int>("InterestPayment");
+
+                    b.Property<decimal>("InterestTax");
 
                     b.Property<int>("InterestType");
 
@@ -243,7 +247,11 @@ namespace YourMoney.Data.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<decimal>("NetPaid");
+
                     b.Property<int>("OverdraftOpportunity");
+
+                    b.Property<decimal>("TotalPaid");
 
                     b.Property<string>("ValidDepositDeadlines");
 

@@ -23,16 +23,19 @@
         public const string FortyEightMonths = "48 месеца";
         public const string SixtyMonths = "60 месеца";
 
-        //For whom is the deposit
+        //For whom is the deposit constants
         public const string Individuals = "Физически лица";
         public const string Retirees = "Пенсионери";
         public const string Children = "Деца";
 
-        // Payment of interest
+        // Payment of interest constants
         public const string OnMaturity = "На падеж";
         public const string InAdvance = "Авансово";
         public const string Monthly = "Ежемесечно";
         public const string EndOfPeriod = "На край на период";
+
+        // Deposit type constants
+        public const string TermDeposit = "Срочен депозит";
 
         // Display names
         public const decimal AmountDisplayValue = 5000;

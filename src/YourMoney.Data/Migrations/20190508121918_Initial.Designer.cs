@@ -10,7 +10,7 @@ using YourMoney.Data;
 namespace YourMoney.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190508115713_Initial")]
+    [Migration("20190508121918_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -221,15 +221,19 @@ namespace YourMoney.Data.Migrations
 
                     b.Property<int>("DepositTerm");
 
-                    b.Property<string>("DepositType");
+                    b.Property<int>("DepositType");
 
                     b.Property<int>("IncreasingAmount");
 
-                    b.Property<double>("Interest");
+                    b.Property<decimal>("Interest");
+
+                    b.Property<decimal>("InterestAmount");
 
                     b.Property<int>("InterestCapitalize");
 
                     b.Property<int>("InterestPayment");
+
+                    b.Property<decimal>("InterestTax");
 
                     b.Property<int>("InterestType");
 
@@ -245,7 +249,11 @@ namespace YourMoney.Data.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<decimal>("NetPaid");
+
                     b.Property<int>("OverdraftOpportunity");
+
+                    b.Property<decimal>("TotalPaid");
 
                     b.Property<string>("ValidDepositDeadlines");
 

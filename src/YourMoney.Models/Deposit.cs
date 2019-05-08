@@ -10,8 +10,13 @@
         public decimal Amount { get; set; }
         public decimal MinimumAmount { get; set; }
         public decimal MaximumAmount { get; set; }
-        public double Interest { get; set; }
-        public string DepositType { get; set; }
+        public decimal Interest { get; set; }
+
+        public decimal TotalPaid { get; set; }
+        public decimal InterestAmount { get; set; }
+        public decimal InterestTax { get; set; }
+        public decimal NetPaid { get; set; }
+        public DepositType DepositType { get; set; }
         public string ContractualInterest { get; set; }
 
         public Currency Currency { get; set; }
@@ -33,5 +38,10 @@
 
         public int BankId { get; set; }
         public virtual Bank Bank { get; set; }
+
+        public Deposit()
+        {
+            this.DepositType = DepositType.TermDeposit;
+        }
     }
 }
