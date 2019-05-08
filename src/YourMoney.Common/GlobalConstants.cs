@@ -33,5 +33,23 @@
         public const string InAdvance = "Авансово";
         public const string Monthly = "Ежемесечно";
         public const string EndOfPeriod = "На край на период";
+
+        // Display names
+        public const decimal AmountDisplayValue = 5000;
+        public const string AmountDisplayName = "РАЗМЕР НА ДЕПОЗИТА";
+        public const string CurrencyDisplayName = "ВАЛУТА";
+        public const string DepositTermDisplayName = "СРОК НА ДЕПОЗИТА";
+        public const string InterestPaymentDisplayName = "ИЗПЛАЩАНЕ НА ЛИХВИ";
+        public const string DepositForDisplayName = "ЗА КОГО Е ДЕПОЗИТА";
+        public const string InterestTypeDisplayName = "ВИД ЛИХВА";
+        public const string IncreasingAmountDisplayName = "ДОВНАСЯНЕ НА СУМИ";
+        public const string OverdraftOpportunityDisplayName = "ВЪЗМОЖНОСТ ЗА ОВЪРДРАФТ";
+        public const string CreditOpportunityDisplayName = "ВЪЗМОЖНОСТ ЗА КРЕДИТ";
+
+        // Controller names
+        public const string DepositsControllerName = "Deposits";
+
+        // Action names
+        public const string ResultsActionName = "Results";
     }
 }

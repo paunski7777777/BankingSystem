@@ -1,0 +1,38 @@
+﻿@using YourMoney.Web.Infrastructure
+
+@model YourMoney.Web.Models.Deposits.AllComparedDepositsViewModel
+
+@{
+    ViewData["Title"] = "Срочни депозити - резултати от търсене";
+}
+
+<div class="container">
+    <h2 class="text-center">@this.ViewData["Title"]</h2>
+    <div class="table-responsive-lg">
+        <table class="table-hover table">
+            <tbody>
+                <tr class="active">
+                    <th>Банка</th>
+                    <th>Име на депозита</th>
+                    <th>ЕГЛ</th>
+                    <th>Минимална сума</th>
+                    <th>Вид лихва</th>
+                    <th></th>
+                </tr>
+                @foreach (var deposit in Model.Deposits)
+                {
+                    <tr>
+                        <td>@deposit.Bank.Name</td>
+                        <td>@deposit.Name</td>
+                        <td>@deposit.Interest</td>
+                        <td>@deposit.MinimumAmount</td>
+                        <td>@deposit.InterestType.GetDisplayName()</td>
+                        <td>
+                            <a class="btn btn-primary text-white">Изчисли</a>
+                        <td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

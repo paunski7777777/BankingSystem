@@ -1,4 +1,6 @@
-﻿@model YourMoney.Web.Models.Banks.AllBanksViewModel
+﻿@using YourMoney.Web.Infrastructure
+
+@model YourMoney.Web.Models.Banks.AllBanksViewModel
 
 @{
     ViewData["Title"] = "Каталог";
@@ -6,25 +8,29 @@
 
 <div class="container">
     <h2 class="text-center">@this.ViewData["Title"]</h2>
-    <hr class="hr-2" />
     <div class="table-responsive-lg">
         <table class="table-hover table">
             <tbody>
                 <tr class="active">
                     <th>Банка</th>
-                    @*<th>Име на депозита</th>
+                    <th>Име на депозита</th>
                     <th>Минимална сума</th>
                     <th>Лихва</th>
-                    <th>Изплащане на лихви</th>*@
+                    <th>Изплащане на лихви</th>
+                    <th></th>
                 </tr>
                 @foreach (var bank in Model.Banks)
                 {
                     <tr>
-                        <td>@bank.BankName</td>
-                        @*<td>@bank.DepositName</td>
-                        <td>@bank.DepositMinimumAmount</td>
-                        <td>@bank.DepositInterest</td>
-                        <td>@bank.DepositInterestPayment</td>*@
+                        <td>@bank.Name</td>
+                        @foreach (var deposit in bank.Deposits)
+                        {
+                            <td>@deposit.Name</td>
+                            <td>@deposit.MinimumAmount</td>
+                            <td>@deposit.Interest</td>
+                            <td>@deposit.InterestPayment.GetDisplayName()</td>
+                        }
+                        <td><a class="btn btn-primary text-white">Изчисли</a><td>
                     </tr>
                 }
             </tbody>

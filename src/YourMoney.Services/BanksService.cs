@@ -1,11 +1,10 @@
 ﻿namespace YourMoney.Services
 {
     using AutoMapper.QueryableExtensions;
-    using System.Collections.Generic;
+
     using System.Linq;
 
     using YourMoney.Data;
-    using YourMoney.Models;
     using YourMoney.Services.Contracts;
 
     public class BanksService : IBanksService
@@ -19,8 +18,5 @@
 
         public IQueryable<TModel> All<TModel>()
             => this.dbContext.Banks.AsQueryable().ProjectTo<TModel>();
-
-        public IEnumerable<Bank> AllBanks()
-            => this.dbContext.Banks.ToList();
     }
 }

@@ -29,20 +29,9 @@
         public string ValidDepositDeadlines { get; set; }
         public ValidForCustomer ValidForCustomer { get; set; }
         public MonthlyAccrual MonthlyAccrual { get; set; }
+        public string AdditionalTerms { get; set; }
 
         public int BankId { get; set; }
         public virtual Bank Bank { get; set; }
-
-        public Deposit()
-        {
-            this.Currency = Currency.BGN;
-            this.DepositTerm = DepositTerm.TwelveMonths;
-            this.InterestPayment = InterestPayment.NoMatter;
-            this.DepositFor = DepositFor.NoMatter;
-            this.InterestType = InterestType.NoMatter;
-            this.IncreasingAmount = IncreasingAmount.NoMatter;
-            this.OverdraftOpportunity = OverdraftOpportunity.NoMatter;
-            this.CreditOpportunity = CreditOpportunity.NoMatter;
-        }
     }
 }

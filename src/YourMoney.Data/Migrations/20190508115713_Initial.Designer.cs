@@ -10,7 +10,7 @@ using YourMoney.Data;
 namespace YourMoney.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190507142722_Initial")]
+    [Migration("20190508115713_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -205,6 +205,8 @@ namespace YourMoney.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AdditionalTerms");
+
                     b.Property<decimal>("Amount");
 
                     b.Property<int>("BankId");
@@ -238,6 +240,8 @@ namespace YourMoney.Data.Migrations
                     b.Property<decimal>("MinimumAmount");
 
                     b.Property<string>("MinimumMonthPeriod");
+
+                    b.Property<int>("MonthlyAccrual");
 
                     b.Property<string>("Name");
 

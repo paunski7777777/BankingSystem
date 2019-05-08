@@ -203,6 +203,8 @@ namespace YourMoney.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AdditionalTerms");
+
                     b.Property<decimal>("Amount");
 
                     b.Property<int>("BankId");
