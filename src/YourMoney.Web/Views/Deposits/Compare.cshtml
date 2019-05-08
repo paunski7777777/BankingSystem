@@ -29,30 +29,35 @@
                 <select asp-for="InterestPayment" asp-items="Html.GetEnumSelectList<InterestPayment>()" class="form-control"></select>
             </div>
         </div>
-        <div class="form-group row font-weight-bold">
-            <label asp-for="DepositFor" class="col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-                <select asp-for="DepositFor" asp-items="Html.GetEnumSelectList<DepositFor>()" class="form-control"></select>
-            </div>
+        <div class="text-right mb-3">
+            <a class="btn btn-success" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Разширено търсене</a>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6 font-weight-bold">
-                <label asp-for="InterestType"></label>
-                <select asp-for="InterestType" asp-items="Html.GetEnumSelectList<InterestType>()" class="form-control"></select>
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="form-group row font-weight-bold">
+                <label asp-for="DepositFor" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <select asp-for="DepositFor" asp-items="Html.GetEnumSelectList<DepositFor>()" class="form-control"></select>
+                </div>
             </div>
-            <div class="form-group col-md-6 font-weight-bold">
-                <label asp-for="IncreasingAmount"></label>
-                <select asp-for="IncreasingAmount" asp-items="Html.GetEnumSelectList<IncreasingAmount>()" class="form-control"></select>
+            <div class="form-row">
+                <div class="form-group col-md-6 font-weight-bold">
+                    <label asp-for="InterestType"></label>
+                    <select asp-for="InterestType" asp-items="Html.GetEnumSelectList<InterestType>()" class="form-control"></select>
+                </div>
+                <div class="form-group col-md-6 font-weight-bold">
+                    <label asp-for="IncreasingAmount"></label>
+                    <select asp-for="IncreasingAmount" asp-items="Html.GetEnumSelectList<IncreasingAmount>()" class="form-control"></select>
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6 font-weight-bold">
-                <label asp-for="OverdraftOpportunity"></label>
-                <select asp-for="OverdraftOpportunity" asp-items="Html.GetEnumSelectList<OverdraftOpportunity>()" class="form-control"></select>
-            </div>
-            <div class="form-group col-md-6 font-weight-bold">
-                <label asp-for="CreditOpportunity"></label>
-                <select asp-for="CreditOpportunity" asp-items="Html.GetEnumSelectList<CreditOpportunity>()" class="form-control"></select>
+            <div class="form-row">
+                <div class="form-group col-md-6 font-weight-bold">
+                    <label asp-for="OverdraftOpportunity"></label>
+                    <select asp-for="OverdraftOpportunity" asp-items="Html.GetEnumSelectList<OverdraftOpportunity>()" class="form-control"></select>
+                </div>
+                <div class="form-group col-md-6 font-weight-bold">
+                    <label asp-for="CreditOpportunity"></label>
+                    <select asp-for="CreditOpportunity" asp-items="Html.GetEnumSelectList<CreditOpportunity>()" class="form-control"></select>
+                </div>
             </div>
         </div>
         <div class="text-center">
