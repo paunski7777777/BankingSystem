@@ -7,6 +7,12 @@
     public enum DepositType
     {
         [Display(Name = GlobalConstants.TermDeposit)]
-        TermDeposit = 0
+        TermDeposit = 0,
+
+        [Display(Name = GlobalConstants.FlexibleDeposit)]
+        FlexibleDeposit = 1,
+
+        [Display(Name = GlobalConstants.AdvancePaymentInterestDeposit)]
+        AdvancePaymentInterestDeposit = 2
     }
 }

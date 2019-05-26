@@ -7,6 +7,7 @@
     using YourMoney.Models;
     using YourMoney.Web.Areas.Admin.Models.Banks;
     using YourMoney.Web.Areas.Admin.Models.Deposits;
+    using YourMoney.Web.Models.Deposits;
 
     public class MappingProfile : Profile
     {
@@ -22,6 +23,7 @@
                            opt => opt.MapFrom(src => src.Name));
 
             this.CreateMap<Deposit, Deposit>();
+            this.CreateMap<Deposit, DepositDetailsViewModel>();
             this.CreateMap<Deposit, DepositBankDetailsViewModel>();
             this.CreateMap<Deposit, Models.Deposits.DepositViewModel>();
             this.CreateMap<Deposit, Areas.Admin.Models.Deposits.DepositViewModel>();

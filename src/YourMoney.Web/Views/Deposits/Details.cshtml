@@ -1,0 +1,178 @@
+﻿@model YourMoney.Web.Models.Deposits.DepositDetailsViewModel
+
+@{
+    ViewData["Title"] = "Детайли на депозита";
+}
+
+<div class="container">
+    <h1>@this.ViewData["Title"]</h1>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BankName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BankName)
+            </dd>
+        </dl>
+
+        <div>
+            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                Лихвени условия
+            </a>
+        </div>
+        <hr />
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DepositType)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DepositType)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ContractualInterest)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ContractualInterest)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InterestType)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.InterestType)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InterestCapitalize)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.InterestCapitalize)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InterestPayment)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.InterestPayment)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.MonthlyAccrual)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MonthlyAccrual)
+                </dd>
+            </dl>
+        </div>
+        <hr />
+        <div>
+            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
+                Основни параметри на избрания депозит
+            </a>
+        </div>
+        <hr />
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Currency)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Currency)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DepositFor)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DepositFor)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.MaximumAmount)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MaximumAmount)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.MinimumAmount)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MinimumAmount)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.MaximumMonthPeriod)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MaximumMonthPeriod)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.MinimumMonthPeriod)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MinimumMonthPeriod)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ValidDepositDeadlines)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ValidDepositDeadlines)
+                </dd>
+            </dl>
+        </div>
+        <hr />
+        <div>
+            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">
+                Опции
+            </a>
+        </div>
+        <hr />
+        <div class="collapse multi-collapse" id="multiCollapseExample3">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ValidForCustomer)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ValidForCustomer)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CreditOpportunity)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CreditOpportunity)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.OverdraftOpportunity)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.OverdraftOpportunity)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IncreasingAmount)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IncreasingAmount)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AdditionalTerms)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AdditionalTerms)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Bonuses)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Bonuses)
+                </dd>
+            </dl>
+        </div>
+        <hr />
+    </div>
+    <div>
+        <a asp-area="Admin" asp-controller="Deposits" asp-action="Edit" asp-route-id="@Model.Id">Промени</a> |
+        <a asp-area="Admin" asp-controller="Deposits" asp-action="All">Назад към всички депозити</a>
+    </div>
+</div>

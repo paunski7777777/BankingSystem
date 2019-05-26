@@ -36,6 +36,8 @@
 
         // Deposit type constants
         public const string TermDeposit = "Срочен депозит";
+        public const string FlexibleDeposit = "Гъвкав депозит";
+        public const string AdvancePaymentInterestDeposit = "Депозит с авансово изплащане на лихвата";
 
         // Display names - Compare
         public const decimal AmountDisplayValue = 5000;
@@ -99,9 +101,11 @@
 
         // Banks
         public const string BankDisplayName = "Име на банка";
+        public const string BankDetailsDisplayName = "Банка";
 
         // Deposits
         public const string DepositDisplayName = "Име на депозита";
+        public const string DepositDetailsDislpayName = "Депозит";
 
     }
 }

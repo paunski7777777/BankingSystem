@@ -38,10 +38,5 @@
 
         public int BankId { get; set; }
         public virtual Bank Bank { get; set; }
-
-        public Deposit()
-        {
-            this.DepositType = DepositType.TermDeposit;
-        }
     }
 }
