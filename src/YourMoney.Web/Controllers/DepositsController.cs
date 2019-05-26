@@ -20,6 +20,18 @@
             this.depositsService = depositsService;
         }
 
+        public IActionResult All()
+        {
+            var deposits = this.depositsService.All<DepositViewModel>();
+
+            var allDepositsViewModel = new AllDepositsViewModel
+            {
+                Deposits = deposits
+            };
+
+            return this.View(allDepositsViewModel);
+        }
+
         public IActionResult Compare()
         {
             var model = new CompareDepositInputModel

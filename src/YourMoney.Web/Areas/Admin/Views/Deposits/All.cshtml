@@ -1,0 +1,32 @@
+﻿@model YourMoney.Web.Areas.Admin.Models.Deposits.AllDepositsViewModel
+
+@{
+    ViewData["Title"] = "Депозити";
+}
+
+<div class="container">
+    <h1>@this.ViewData["Title"]</h1>
+    <p>
+        <a asp-area="Admin" asp-controller="Deposits" asp-action="Add">Добави нов депозит</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Депозит</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var deposit in Model.Deposits)
+            {
+                <tr>
+                    <td>
+                        @deposit.Name -
+                        <a asp-area="Admin" asp-controller="Deposits" asp-action="Edit" asp-route-id="@deposit.Id">Промени</a> |
+                        <a asp-area="Admin" asp-controller="Deposits" asp-action="Details" asp-route-id="@deposit.Id">Детайли</a> |
+                        <a asp-area="Admin" asp-controller="Deposits" asp-action="Delete" asp-route-id="@deposit.Id">Изтрий</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

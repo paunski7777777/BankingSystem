@@ -1,6 +1,6 @@
 ﻿@using YourMoney.Web.Infrastructure
 
-@model YourMoney.Web.Models.Banks.AllBanksViewModel
+@model YourMoney.Web.Models.Deposits.AllDepositsViewModel
 
 @{
     ViewData["Title"] = "Каталог";
@@ -19,19 +19,18 @@
                     <th>Изплащане на лихви</th>
                     <th></th>
                 </tr>
-                @foreach (var bank in Model.Banks)
+                @foreach (var deposit in Model.Deposits)
                 {
-                    <tr>
-                        <td>@bank.Name</td>
-                        @foreach (var deposit in bank.Deposits)
-                        {
-                            <td>@deposit.Name</td>
-                            <td>@deposit.MinimumAmount</td>
-                            <td>@deposit.Interest</td>
-                            <td>@deposit.InterestPayment.GetDisplayName()</td>
-                        }
-                        <td><a class="btn btn-primary text-white">Изчисли</a><td>
-                    </tr>
+                <tr>
+                    <td>@deposit.BankName</td>
+                    <td>@deposit.Name</td>
+                    <td>@deposit.MinimumAmount</td>
+                    <td>@deposit.Interest</td>
+                    <td>@deposit.InterestPayment.GetDisplayName()</td>
+                    <td>
+                        <a class="btn btn-primary text-white">Изчисли</a>
+                    <td>
+                </tr>
                 }
             </tbody>
         </table>

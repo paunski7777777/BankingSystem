@@ -1,0 +1,14 @@
+﻿<li class="nav-item">
+    <div class="dropdown">
+        <button class="nav-link text-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Banks" asp-action="Add">Добави банка</a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Deposits" asp-action="Add">Добави депозит</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Banks" asp-action="All">Банки</a>
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Deposits" asp-action="All">Депозити</a>
+        </div>
+    </div>
+</li>

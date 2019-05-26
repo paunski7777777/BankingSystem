@@ -1,4 +1,4 @@
-﻿namespace YourMoney.Web.Models.Banks
+﻿namespace YourMoney.Web.Areas.Admin.Models.Banks
 {
     using System.Collections.Generic;
 

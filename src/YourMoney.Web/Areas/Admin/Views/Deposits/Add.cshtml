@@ -1,0 +1,178 @@
+﻿@using YourMoney.Models.Enums
+
+@model YourMoney.Web.Areas.Admin.Models.Deposits.AddDepositInputModel
+
+@{
+    ViewData["Title"] = "Добави депозит";
+}
+
+<div class="container">
+    <h1>@this.ViewData["Title"]</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-area="Admin" asp-controller="Deposits" asp-action="Add" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="MinimumAmount" class="control-label"></label>
+                        <input asp-for="MinimumAmount" type="number" min="0" class="form-control">
+                        <span asp-validation-for="MinimumAmount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="MaximumAmount" class="control-label"></label>
+                        <input asp-for="MaximumAmount" type="number" min="0.00" class="form-control">
+                        <span asp-validation-for="MaximumAmount" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="Interest" class="control-label"></label>
+                        <input asp-for="Interest" class="form-control" />
+                        <span asp-validation-for="Interest" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="TotalPaid" class="control-label"></label>
+                        <input asp-for="TotalPaid" class="form-control" />
+                        <span asp-validation-for="TotalPaid" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="InterestAmount" class="control-label"></label>
+                        <input asp-for="InterestAmount" class="form-control" />
+                        <span asp-validation-for="InterestAmount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="InterestTax" class="control-label"></label>
+                        <input asp-for="InterestTax" class="form-control" />
+                        <span asp-validation-for="InterestTax" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label asp-for="NetPaid" class="control-label"></label>
+                        <input asp-for="NetPaid" class="form-control" />
+                        <span asp-validation-for="NetPaid" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContractualInterest" class="control-label"></label>
+                    <textarea asp-for="ContractualInterest" class="form-control" rows="10" cols="10"></textarea>
+                    <span asp-validation-for="ContractualInterest" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="DepositType" class="control-label"></label>
+                        <select asp-for="DepositType" asp-items="Html.GetEnumSelectList<DepositType>()" class="form-control"></select>
+                        <span asp-validation-for="DepositType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="Currency" class="control-label"></label>
+                        <select asp-for="Currency" asp-items="Html.GetEnumSelectList<Currency>()" class="form-control"></select>
+                        <span asp-validation-for="Currency" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="DepositTerm" class="control-label"></label>
+                        <select asp-for="DepositTerm" asp-items="Html.GetEnumSelectList<DepositTerm>()" class="form-control"></select>
+                        <span asp-validation-for="DepositTerm" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="InterestPayment" class="control-label"></label>
+                        <select asp-for="InterestPayment" asp-items="Html.GetEnumSelectList<InterestPayment>()" class="form-control"></select>
+                        <span asp-validation-for="InterestPayment" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="DepositFor" class="control-label"></label>
+                        <select asp-for="DepositFor" asp-items="Html.GetEnumSelectList<DepositFor>()" class="form-control"></select>
+                        <span asp-validation-for="DepositFor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestType" class="control-label"></label>
+                        <select asp-for="InterestType" asp-items="Html.GetEnumSelectList<InterestType>()" class="form-control"></select>
+                        <span asp-validation-for="InterestType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <div class="form-group">
+                            <label asp-for="IncreasingAmount" class="control-label"></label>
+                            <select asp-for="IncreasingAmount" asp-items="Html.GetEnumSelectList<IncreasingAmount>()" class="form-control"></select>
+                            <span asp-validation-for="IncreasingAmount" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="OverdraftOpportunity" class="control-label"></label>
+                        <select asp-for="OverdraftOpportunity" asp-items="Html.GetEnumSelectList<OverdraftOpportunity>()" class="form-control"></select>
+                        <span asp-validation-for="OverdraftOpportunity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="CreditOpportunity" class="control-label"></label>
+                        <select asp-for="CreditOpportunity" asp-items="Html.GetEnumSelectList<CreditOpportunity>()" class="form-control"></select>
+                        <span asp-validation-for="CreditOpportunity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="InterestCapitalize" class="control-label"></label>
+                        <select asp-for="InterestCapitalize" asp-items="Html.GetEnumSelectList<InterestCapitalize>()" class="form-control"></select>
+                        <span asp-validation-for="InterestCapitalize" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="MaximumMonthPeriod" class="control-label"></label>
+                        <input asp-for="MaximumMonthPeriod" class="form-control" />
+                        <span asp-validation-for="MaximumMonthPeriod" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="MinimumMonthPeriod" class="control-label"></label>
+                        <input asp-for="MinimumMonthPeriod" class="form-control" />
+                        <span asp-validation-for="MinimumMonthPeriod" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="ValidDepositDeadlines" class="control-label"></label>
+                        <input asp-for="ValidDepositDeadlines" class="form-control" />
+                        <span asp-validation-for="ValidDepositDeadlines" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ValidForCustomer" class="control-label"></label>
+                        <select asp-for="ValidForCustomer" asp-items="Html.GetEnumSelectList<ValidForCustomer>()" class="form-control"></select>
+                        <span asp-validation-for="ValidForCustomer" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="MonthlyAccrual" class="control-label"></label>
+                        <select asp-for="MonthlyAccrual" asp-items="Html.GetEnumSelectList<MonthlyAccrual>()" class="form-control"></select>
+                        <span asp-validation-for="MonthlyAccrual" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdditionalTerms" class="control-label"></label>
+                    <textarea asp-for="AdditionalTerms" class="form-control" rows="10" cols="10"></textarea>
+                    <span asp-validation-for="AdditionalTerms" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Bonuses" class="control-label"></label>
+                    <textarea asp-for="Bonuses" class="form-control" rows="10" cols="10"></textarea>
+                    <span asp-validation-for="Bonuses" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BankId" class="control-label"></label>
+                    <select asp-for="BankId" class="form-control" asp-items="@Model.Banks"></select>
+                    <span asp-validation-for="BankId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Добави" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-area="" asp-controller="Deposits" asp-action="All">Назад към всички депозити</a>
+    </div>
+</div>

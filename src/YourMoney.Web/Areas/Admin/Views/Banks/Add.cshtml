@@ -1,0 +1,30 @@
+﻿@model YourMoney.Web.Areas.Admin.Models.Banks.AddBankInputModel
+
+@{
+    ViewData["Title"] = "Добави банка";
+}
+
+<div class="container">
+    <h1>@this.ViewData["Title"]</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-area="Admin" asp-controller="Banks" asp-action="Add" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Добави" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-area="Admin" asp-controller="Banks" asp-action="All">Всички банки</a>
+    </div>
+</div>
+

@@ -7,7 +7,6 @@
         public int Id { get; set; }
 
         public string Name { get; set; }
-        public decimal Amount { get; set; }
         public decimal MinimumAmount { get; set; }
         public decimal MaximumAmount { get; set; }
         public decimal Interest { get; set; }
@@ -35,6 +34,7 @@
         public ValidForCustomer ValidForCustomer { get; set; }
         public MonthlyAccrual MonthlyAccrual { get; set; }
         public string AdditionalTerms { get; set; }
+        public string Bonuses { get; set; }
 
         public int BankId { get; set; }
         public virtual Bank Bank { get; set; }

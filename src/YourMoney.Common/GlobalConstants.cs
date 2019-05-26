@@ -37,7 +37,7 @@
         // Deposit type constants
         public const string TermDeposit = "Срочен депозит";
 
-        // Display names
+        // Display names - Compare
         public const decimal AmountDisplayValue = 5000;
         public const string AmountDisplayName = "РАЗМЕР НА ДЕПОЗИТА";
         public const string CurrencyDisplayName = "ВАЛУТА";
@@ -49,10 +49,59 @@
         public const string OverdraftOpportunityDisplayName = "ВЪЗМОЖНОСТ ЗА ОВЪРДРАФТ";
         public const string CreditOpportunityDisplayName = "ВЪЗМОЖНОСТ ЗА КРЕДИТ";
 
+        // Display names - Add deposit
+        public const string DepositAddDisplayName = "Име на депозита";
+        public const string MinimumAmountAddDisplayName = "Минимална сума";
+        public const string MaximumAmountAddDisplayName = "Максимален размер на депозита";
+        public const string InterestAddDisplayName = "Ефективна Годишна Лихва";
+        public const string TotalPaidAddDisplayName = "Общо изплатени";
+        public const string InterestAmountAddDisplayName = "Сума на лихвата";
+        public const string InterestTaxAddDisplayName = "Данък върху лихвата";
+        public const string NetPaidAddDisplayName = "Нетно изплатени";
+        public const string DepositTypeAddDisplayName = "Тип на депозита";
+        public const string ContractualInterestAddDisplayName = "Договорена лихва";
+        public const string CurrencyAddDisplayName = "Валута";
+        public const string DepositTermAddDisplayName = "Срок на депозита";
+        public const string InterestPaymentAddDisplayName = "Изплащане на лихви";
+        public const string DepositForAddDisplayName = "За кого е депозита";
+        public const string InterestTypeAddDisplayName = "Вид лихва";
+        public const string IncreasingAmountAddDisplayName = "Довнасяне на суми";
+        public const string OverdraftOpportunityAddDisplayName = "Възможност за овърдрафт";
+        public const string CreditOpportunityAddDisplayName = "Възможност за кредит";
+        public const string InterestCapitalizeAddDisplayName = "Капитализира ли се лихвата в срока на депозита?";
+        public const string MaximumMonthPeriodAddDisplayName = "Максимален срок(месеци)";
+        public const string MinimumMonthPeriodAddDisplayName = "Минимален срок(месеци)";
+        public const string ValidDepositDeadlinesAddDisplayName = "Срокове валидни за депозита (описание)";
+        public const string ValidForCustomerAddDisplayName = "Валиден само за настоящи клиенти";
+        public const string MonthlyAccrualAddDisplayName = "Ежемесечно олихвяване";
+        public const string AdditionalTermsAddDisplayName = "Допълнителни условия";
+        public const string BonusesAddDisplayName = "Бонуси";
+        public const string BankAddDisplayName = "Банка";
+
+        // Areas
+        public const string EmptyArea = "";
+
         // Controller names
         public const string DepositsControllerName = "Deposits";
+        public const string BanksControllerName = "Banks";
 
         // Action names
         public const string ResultsActionName = "Results";
+        public const string AllActionName = "All";
+
+        // View names
+        public const string ErrorViewName = "Error";
+
+        // User roles
+        public const string AdminRoleName = "Admin";
+        public const string UserRoleName = "User";
+        public const int UserCountCheckForAdmin = 1;
+
+        // Banks
+        public const string BankDisplayName = "Име на банка";
+
+        // Deposits
+        public const string DepositDisplayName = "Име на депозита";
+
     }
 }

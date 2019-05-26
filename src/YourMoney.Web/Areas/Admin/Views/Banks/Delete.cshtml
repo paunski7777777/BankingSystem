@@ -1,0 +1,25 @@
+﻿@model YourMoney.Web.Areas.Admin.Models.Banks.BankViewModel
+
+@{
+    ViewData["Title"] = "Сигурни ли сте, че искате да изтриете това?";
+}
+
+<div class="container text-center">
+    <h3>@this.ViewData["Title"]</h3>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-lg-2">
+                <label asp-for="Name"></label>
+            </dt>
+            <dd class="col-lg-10">
+                @Model.Name
+            </dd>
+        </dl>
+
+        <form asp-area="Admin" asp-controller="Banks" asp-action="Delete" method="post">
+            <input type="submit" value="Изтрий" class="btn btn-danger" /> |
+            <a asp-area="Admin" asp-controller="Banks" asp-action="All">Назад към всички банки</a>
+        </form>
+    </div>
+</div>

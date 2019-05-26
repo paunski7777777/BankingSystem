@@ -22,6 +22,7 @@
     using YourMoney.Services.Contracts;
     using YourMoney.Services;
     using YourMoney.Web.Infrastructure;
+    using YourMoney.Web.Middlewares.MiddlewareExtensions;
 
     public class Startup
     {
@@ -57,8 +58,9 @@
                 options.SignIn.RequireConfirmedEmail = false;
             });
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddDefaultUI(UIFramework.Bootstrap4)
+                    .AddDefaultTokenProviders()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -89,6 +91,8 @@
                 app.UseHsts();
             }
 
+            app.UseSeedDataMiddleware();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
@@ -97,6 +101,11 @@
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            );
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

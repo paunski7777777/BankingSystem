@@ -10,7 +10,7 @@ using YourMoney.Data;
 namespace YourMoney.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190508121918_Initial")]
+    [Migration("20190525014240_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -138,11 +138,9 @@ namespace YourMoney.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("ProviderKey")
-                        .HasMaxLength(128);
+                    b.Property<string>("ProviderKey");
 
                     b.Property<string>("ProviderDisplayName");
 
@@ -173,11 +171,9 @@ namespace YourMoney.Data.Migrations
                 {
                     b.Property<string>("UserId");
 
-                    b.Property<string>("LoginProvider")
-                        .HasMaxLength(128);
+                    b.Property<string>("LoginProvider");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(128);
+                    b.Property<string>("Name");
 
                     b.Property<string>("Value");
 
@@ -206,8 +202,6 @@ namespace YourMoney.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AdditionalTerms");
-
-                    b.Property<decimal>("Amount");
 
                     b.Property<int>("BankId");
 
