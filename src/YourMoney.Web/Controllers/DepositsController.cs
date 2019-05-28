@@ -51,40 +51,35 @@
             return this.View(allDepositsViewModel);
         }
 
-        //public IActionResult Compare()
-        //{
-        //    var model = new CompareDepositInputModel
-        //    {
-        //        Amount = GlobalConstants.AmountDisplayValue,
-        //        DepositTerm = DepositTerm.TwelveMonths
-        //    };
+        public IActionResult Compare()
+        {
+            var model = new CompareDepositInputModel
+            {
+                Amount = GlobalConstants.AmountDisplayValue,
+                DepositTerm = DepositTerm.TwelveMonths
+            };
 
-        //    return View(model);
-        //}
+            return View(model);
+        }
 
-        //[HttpPost]
-        //public IActionResult Compare(CompareDepositInputModel model)
-        //{
-        //    if (!this.ModelState.IsValid)
-        //    {
-        //        return this.View(model);
-        //    }
+        [HttpPost]
+        public IActionResult Compare(CompareDepositInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
 
-        //    var deposits =
-        //        this.depositsService
-        //            .AllCompared<Deposit>(model.Currency, model.DepositTerm, model.InterestPayment,
-        //                           model.DepositFor, model.InterestType, model.IncreasingAmount,
-        //                           model.OverdraftOpportunity, model.CreditOpportunity)
-        //            .Where(d => d.Currency == model.Currency
-        //                     && d.DepositTerm == model.DepositTerm)
-        //            .ToList();
+            var comparedDeposits = this.depositsService.Compared(model.Amount, model.Currency, model.DepositTerm,
+                model.InterestPayment, model.DepositFor, model.InterestType, model.IncreasingAmount,
+                model.OverdraftOpportunity, model.CreditOpportunity);
 
-        //    var allComparedDepositsViewModel = new AllComparedDepositsViewModel
-        //    {
-        //        Deposits = deposits
-        //    };
+            var allComparedDepositsViewModel = new AllComparedDepositsViewModel
+            {
+                Deposits = comparedDeposits
+            };
 
-        //    return this.View(viewName: GlobalConstants.ResultsActionName, allComparedDepositsViewModel);
-        //}
+            return this.View(viewName: GlobalConstants.ResultsActionName, allComparedDepositsViewModel);
+        }
     }
 }

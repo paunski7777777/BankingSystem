@@ -84,13 +84,42 @@
         public IQueryable<TModel> All<TModel>()
         => this.dbContext.Deposits.AsQueryable().ProjectTo<TModel>();
 
-        public IQueryable<TModel> AllCompared<TModel>(Currency currency, DepositTerm depositTerm,
-            InterestPayment interestPayment, DepositFor depositFor, InterestType interestType,
-            IncreasingAmount increasingAmount, OverdraftOpportunity overdraftOpportunity,
-            CreditOpportunity creditOpportunity)
-            => this.dbContext.Deposits.AsQueryable().ProjectTo<TModel>();
+        public IEnumerable<Deposit> Compared(decimal amount, Currency currency, DepositTerm depositTerm, InterestPayment interestPayment,
+        DepositFor depositFor, InterestType interestType, IncreasingAmount increasingAmount,
+        OverdraftOpportunity overdraftOpportunity, CreditOpportunity creditOpportunity)
+        {
+            var deposits = this.dbContext.Deposits.Where(d => d.Currency == currency);
+
+            deposits = deposits.Where(d => d.InterestPayment == interestPayment);
+            deposits = deposits.Where(d => d.MinimumAmount <= amount && d.MaximumAmount >= amount);
+
+            if (depositFor != DepositFor.NoMatter)
+            {
+                deposits = deposits.Where(d => d.DepositFor == depositFor);
+            }
+            if (interestType != InterestType.NoMatter)
+            {
+                deposits = deposits.Where(d => d.InterestType == interestType);
+            }
+            if (increasingAmount != IncreasingAmount.NoMatter)
+            {
+                deposits = deposits.Where(d => d.IncreasingAmount == increasingAmount);
+            }
+            if (overdraftOpportunity != OverdraftOpportunity.NoMatter)
+            {
+                deposits = deposits.Where(d => d.OverdraftOpportunity == overdraftOpportunity);
+            }
+            if (creditOpportunity != CreditOpportunity.NoMatter)
+            {
+                deposits = deposits.Where(d => d.CreditOpportunity == creditOpportunity);
+            }
+
+            var compared = deposits.ToList();
+
+            return compared;
+        }
 
         private IEnumerable<TModel> By<TModel>(Func<Deposit, bool> predicate)
-         => this.dbContext.Deposits.Where(predicate).AsQueryable().ProjectTo<TModel>();
+            => this.dbContext.Deposits.Where(predicate).AsQueryable().ProjectTo<TModel>();
     }
 }

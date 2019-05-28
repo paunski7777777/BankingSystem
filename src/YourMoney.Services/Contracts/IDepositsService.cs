@@ -1,7 +1,9 @@
 ﻿namespace YourMoney.Services.Contracts
 {
+    using System.Collections.Generic;
     using System.Linq;
 
+    using YourMoney.Models;
     using YourMoney.Models.Enums;
 
     public interface IDepositsService
@@ -14,12 +16,14 @@
             InterestCapitalize InterestCapitalize, string MaximumMonthPeriod, string MinimumMonthPeriod,
             string ValidDepositDeadlines, ValidForCustomer ValidForCustomer, MonthlyAccrual MonthlyAccrual,
             string AdditionalTerms, string bonuses, int BankId);
+
         void Remove(int depositId);
         bool ExistsById(int depositId);
         bool ExistsByName(string depositName);
         TModel GetById<TModel>(int depositId);
         IQueryable<TModel> All<TModel>();
-       IQueryable<TModel> AllCompared<TModel>(Currency currency, DepositTerm depositTerm, InterestPayment interestPayment,
+
+        IEnumerable<Deposit> Compared(decimal amount, Currency currency, DepositTerm depositTerm, InterestPayment interestPayment,
             DepositFor depositFor, InterestType interestType, IncreasingAmount increasingAmount,
             OverdraftOpportunity overdraftOpportunity, CreditOpportunity creditOpportunity);
     }
