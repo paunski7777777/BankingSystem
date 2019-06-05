@@ -22,13 +22,15 @@
                 @foreach (var deposit in Model.Deposits)
                 {
                     <tr>
-                        <td>@deposit.Bank.Name</td>
+                        <td>@deposit.BankName</td>
                         <td>@deposit.Name</td>
                         <td>@deposit.Interest</td>
                         <td>@deposit.MinimumAmount</td>
                         <td>@deposit.InterestType.GetDisplayName()</td>
                         <td>
-                            <a class="btn btn-primary text-white">Изчисли</a>
+                            <a asp-area="" asp-controller="Deposits" asp-action="Calculated" asp-route-id="@deposit.Id" class="btn btn-primary text-white">
+                                Изчисли
+                            </a>
                         <td>
                     </tr>
                 }

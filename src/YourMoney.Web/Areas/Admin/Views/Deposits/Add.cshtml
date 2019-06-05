@@ -30,34 +30,6 @@
                         <span asp-validation-for="MaximumAmount" class="text-danger"></span>
                     </div>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label asp-for="Interest" class="control-label"></label>
-                        <input asp-for="Interest" class="form-control" />
-                        <span asp-validation-for="Interest" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label asp-for="TotalPaid" class="control-label"></label>
-                        <input asp-for="TotalPaid" class="form-control" />
-                        <span asp-validation-for="TotalPaid" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label asp-for="InterestAmount" class="control-label"></label>
-                        <input asp-for="InterestAmount" class="form-control" />
-                        <span asp-validation-for="InterestAmount" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label asp-for="InterestTax" class="control-label"></label>
-                        <input asp-for="InterestTax" class="form-control" />
-                        <span asp-validation-for="InterestTax" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label asp-for="NetPaid" class="control-label"></label>
-                        <input asp-for="NetPaid" class="form-control" />
-                        <span asp-validation-for="NetPaid" class="text-danger"></span>
-                    </div>
-                </div>
                 <div class="form-group">
                     <label asp-for="ContractualInterest" class="control-label"></label>
                     <textarea asp-for="ContractualInterest" class="form-control" rows="10" cols="10"></textarea>
@@ -65,21 +37,72 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
+                        <label asp-for="InterestForOneMonth" class="control-label"></label>
+                        <input asp-for="InterestForOneMonth" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForOneMonth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="InterestForThreeMonths" class="control-label"></label>
+                        <input asp-for="InterestForThreeMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForThreeMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="InterestForSixMonths" class="control-label"></label>
+                        <input asp-for="InterestForSixMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForSixMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="InterestForNineMonths" class="control-label"></label>
+                        <input asp-for="InterestForNineMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForNineMonths" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForTwelveMonths" class="control-label"></label>
+                        <input asp-for="InterestForTwelveMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForTwelveMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForEighteenMonths" class="control-label"></label>
+                        <input asp-for="InterestForEighteenMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForEighteenMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForTwentyFourMonths" class="control-label"></label>
+                        <input asp-for="InterestForTwentyFourMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForTwentyFourMonths" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForThirtySixMonths" class="control-label"></label>
+                        <input asp-for="InterestForThirtySixMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForThirtySixMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForFortyEightMonths" class="control-label"></label>
+                        <input asp-for="InterestForFortyEightMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForFortyEightMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForSixtyMonths" class="control-label"></label>
+                        <input asp-for="InterestForSixtyMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForSixtyMonths" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
                         <label asp-for="DepositType" class="control-label"></label>
                         <select asp-for="DepositType" asp-items="Html.GetEnumSelectList<DepositType>()" class="form-control"></select>
                         <span asp-validation-for="DepositType" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label asp-for="Currency" class="control-label"></label>
                         <select asp-for="Currency" asp-items="Html.GetEnumSelectList<Currency>()" class="form-control"></select>
                         <span asp-validation-for="Currency" class="text-danger"></span>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label asp-for="DepositTerm" class="control-label"></label>
-                        <select asp-for="DepositTerm" asp-items="Html.GetEnumSelectList<DepositTerm>()" class="form-control"></select>
-                        <span asp-validation-for="DepositTerm" class="text-danger"></span>
-                    </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-4">
                         <label asp-for="InterestPayment" class="control-label"></label>
                         <select asp-for="InterestPayment" asp-items="Html.GetEnumSelectList<InterestPayment>()" class="form-control"></select>
                         <span asp-validation-for="InterestPayment" class="text-danger"></span>

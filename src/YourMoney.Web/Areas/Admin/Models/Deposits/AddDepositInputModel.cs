@@ -23,26 +23,6 @@
         public decimal MaximumAmount { get; set; }
 
         [Required]
-        [Display(Name = GlobalConstants.InterestAddDisplayName)]
-        public decimal Interest { get; set; }
-
-        [Required]
-        [Display(Name = GlobalConstants.TotalPaidAddDisplayName)]
-        public decimal TotalPaid { get; set; }
-
-        [Required]
-        [Display(Name = GlobalConstants.InterestAmountAddDisplayName)]
-        public decimal InterestAmount { get; set; }
-
-        [Required]
-        [Display(Name = GlobalConstants.InterestTaxAddDisplayName)]
-        public decimal InterestTax { get; set; }
-
-        [Required]
-        [Display(Name = GlobalConstants.NetPaidAddDisplayName)]
-        public decimal NetPaid { get; set; }
-
-        [Required]
         [Display(Name = GlobalConstants.DepositTypeAddDisplayName)]
         public DepositType DepositType { get; set; }
 
@@ -51,12 +31,48 @@
         public string ContractualInterest { get; set; }
 
         [Required]
-        [Display(Name = GlobalConstants.CurrencyAddDisplayName)]
-        public Currency Currency { get; set; }
+        [Display(Name = GlobalConstants.InterestForOneMonthDisplayName)]
+        public decimal InterestForOneMonth { get; set; }
 
         [Required]
-        [Display(Name = GlobalConstants.DepositTermAddDisplayName)]
-        public DepositTerm DepositTerm { get; set; }
+        [Display(Name = GlobalConstants.InterestForThreeMonthsDisplayName)]
+        public decimal InterestForThreeMonths { get; set; }
+
+        [Required]
+        [Display(Name = GlobalConstants.InterestForSixMonthsDisplayName)]
+        public decimal InterestForSixMonths { get; set; }
+
+        [Required]
+        [Display(Name = GlobalConstants.InterestForNineMonthsDisplayName)]
+        public decimal InterestForNineMonths { get; set; }
+
+        [Required]
+        [Display(Name = GlobalConstants.InterestForTwelveMonthsDisplayName)]
+        public decimal InterestForTwelveMonths { get; set; }
+
+        [Required]
+        [Display(Name = GlobalConstants.InterestForEighteenMonthsDisplayName)]
+        public decimal InterestForEighteenMonths { get; set; }
+
+        [Required]
+        [Display(Name = GlobalConstants.InterestForTwentyFourMonthsDisplayName)]
+        public decimal InterestForTwentyFourMonths { get; set; }
+
+        [Required]
+        [Display(Name = GlobalConstants.InterestForThirtySixMonthsDisplayName)]
+        public decimal InterestForThirtySixMonths { get; set; }
+
+        [Required]
+        [Display(Name = GlobalConstants.InterestForFortyEightMonthsDisplayName)]
+        public decimal InterestForFortyEightMonths { get; set; }
+
+        [Required]
+        [Display(Name = GlobalConstants.InterestForSixtyMonthsDisplayName)]
+        public decimal InterestForSixtyMonths { get; set; }
+
+        [Required]
+        [Display(Name = GlobalConstants.CurrencyAddDisplayName)]
+        public Currency Currency { get; set; }
 
         [Required]
         [Display(Name = GlobalConstants.InterestPaymentAddDisplayName)]

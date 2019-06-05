@@ -10,8 +10,8 @@ using YourMoney.Data;
 namespace YourMoney.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190525222817_BonusPropertyDepositModel")]
-    partial class BonusPropertyDepositModel
+    [Migration("20190605180318_Deposit_EditModel")]
+    partial class Deposit_EditModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -203,6 +203,8 @@ namespace YourMoney.Data.Migrations
 
                     b.Property<string>("AdditionalTerms");
 
+                    b.Property<decimal>("Amount");
+
                     b.Property<int>("BankId");
 
                     b.Property<string>("Bonuses");
@@ -226,6 +228,26 @@ namespace YourMoney.Data.Migrations
                     b.Property<decimal>("InterestAmount");
 
                     b.Property<int>("InterestCapitalize");
+
+                    b.Property<decimal>("InterestForEighteenMonths");
+
+                    b.Property<decimal>("InterestForFortyEightMonths");
+
+                    b.Property<decimal>("InterestForNineMonths");
+
+                    b.Property<decimal>("InterestForOneMonth");
+
+                    b.Property<decimal>("InterestForSixMonths");
+
+                    b.Property<decimal>("InterestForSixtyMonths");
+
+                    b.Property<decimal>("InterestForThirtySixMonths");
+
+                    b.Property<decimal>("InterestForThreeMonths");
+
+                    b.Property<decimal>("InterestForTwelveMonths");
+
+                    b.Property<decimal>("InterestForTwentyFourMonths");
 
                     b.Property<int>("InterestPayment");
 

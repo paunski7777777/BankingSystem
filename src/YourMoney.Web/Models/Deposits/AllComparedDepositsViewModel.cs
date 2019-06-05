@@ -2,10 +2,8 @@
 {
     using System.Collections.Generic;
 
-    using YourMoney.Models;
-
     public class AllComparedDepositsViewModel
     {
-        public IEnumerable<Deposit> Deposits { get; set; }
+        public IEnumerable<ComparedDepositViewModel> Deposits { get; set; }
     }
 }

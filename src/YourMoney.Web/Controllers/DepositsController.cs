@@ -5,7 +5,6 @@
     using System.Linq;
 
     using YourMoney.Common;
-    using YourMoney.Models;
     using YourMoney.Models.Enums;
     using YourMoney.Services.Contracts;
     using YourMoney.Web.Controllers.Base;
@@ -34,7 +33,7 @@
                 return this.View(viewName: GlobalConstants.ErrorViewName, model: errorViewModel);
             }
 
-            var depositDetailsViewModel = this.depositsService.GetById<DepositDetailsViewModel>(id);
+            var depositDetailsViewModel = this.depositsService.GetById<DetailsDepositViewModel>(id);
 
             return this.View(depositDetailsViewModel);
         }
@@ -70,9 +69,11 @@
                 return this.View(model);
             }
 
-            var comparedDeposits = this.depositsService.Compared(model.Amount, model.Currency, model.DepositTerm,
-                model.InterestPayment, model.DepositFor, model.InterestType, model.IncreasingAmount,
-                model.OverdraftOpportunity, model.CreditOpportunity);
+            var comparedDeposits = this.depositsService
+                                       .Compared<ComparedDepositViewModel>(model.Amount, model.Currency, model.DepositTerm,
+                                       model.InterestPayment, model.DepositFor, model.InterestType, model.IncreasingAmount,
+                                       model.OverdraftOpportunity, model.CreditOpportunity)
+                                       .ToList();
 
             var allComparedDepositsViewModel = new AllComparedDepositsViewModel
             {
@@ -80,6 +81,15 @@
             };
 
             return this.View(viewName: GlobalConstants.ResultsActionName, allComparedDepositsViewModel);
+        }
+
+        public IActionResult Calculated(int id)
+        {
+            this.depositsService.CalculateDeposit(id);
+
+            var deposit = this.depositsService.GetById<CalculatedDepositViewModel>(id);
+
+            return this.View(deposit);
         }
     }
 }

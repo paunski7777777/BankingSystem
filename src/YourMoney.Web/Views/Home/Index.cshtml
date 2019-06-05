@@ -1,7 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
+    var greetingsMessage = this.User.Identity.IsAuthenticated ? $"Добре дошли, {this.User.Identity.Name}!" : "Добре дошли!";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Добре дошли, @this.User.Identity.Name!</h1>
+    <h1 class="display-4">@greetingsMessage</h1>
 </div>

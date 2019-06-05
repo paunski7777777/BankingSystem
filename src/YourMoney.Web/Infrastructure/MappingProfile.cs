@@ -23,8 +23,10 @@
                            opt => opt.MapFrom(src => src.Name));
 
             this.CreateMap<Deposit, Deposit>();
-            this.CreateMap<Deposit, DepositDetailsViewModel>();
+            this.CreateMap<Deposit, DetailsDepositViewModel>();
             this.CreateMap<Deposit, DepositBankDetailsViewModel>();
+            this.CreateMap<Deposit, ComparedDepositViewModel>();
+            this.CreateMap<Deposit, CalculatedDepositViewModel>();
             this.CreateMap<Deposit, Models.Deposits.DepositViewModel>();
             this.CreateMap<Deposit, Areas.Admin.Models.Deposits.DepositViewModel>();
         }

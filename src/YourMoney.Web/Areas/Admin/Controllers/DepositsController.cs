@@ -57,12 +57,15 @@
                 return this.View(viewName: GlobalConstants.ErrorViewName, model: errorViewModel);
             }
 
-            this.depositsService.Add(model.Name, model.MinimumAmount, model.MaximumAmount, model.Interest,
-                model.TotalPaid, model.InterestAmount, model.InterestTax, model.NetPaid, model.DepositType,
-                model.ContractualInterest, model.Currency, model.DepositTerm, model.InterestPayment, model.DepositFor,
-                model.InterestType, model.IncreasingAmount, model.OverdraftOpportunity, model.CreditOpportunity,
-                model.InterestCapitalize, model.MaximumMonthPeriod, model.MinimumMonthPeriod, model.ValidDepositDeadlines,
-                model.ValidForCustomer, model.MonthlyAccrual, model.AdditionalTerms, model.Bonuses, model.BankId);
+            this.depositsService.Add(model.Name, model.MinimumAmount, model.MaximumAmount, model.DepositType,
+                model.ContractualInterest, model.Currency, model.InterestPayment, model.DepositFor, model.InterestType,
+                model.IncreasingAmount, model.OverdraftOpportunity, model.CreditOpportunity, model.InterestCapitalize,
+                model.MaximumMonthPeriod, model.MinimumMonthPeriod, model.ValidDepositDeadlines, model.ValidForCustomer,
+                model.MonthlyAccrual, model.AdditionalTerms, model.Bonuses, model.BankId,
+                model.InterestForOneMonth, model.InterestForThreeMonths, model.InterestForSixMonths,
+                model.InterestForNineMonths, model.InterestForTwelveMonths, model.InterestForEighteenMonths,
+                model.InterestForTwentyFourMonths, model.InterestForThirtySixMonths, model.InterestForFortyEightMonths,
+                model.InterestForSixtyMonths);
 
             return this.RedirectToAction(nameof(All));
         }
@@ -103,6 +106,12 @@
             };
 
             return this.View(allDepositsViewModel);
+        }
+
+        public IActionResult PaymentPlan()
+        {
+
+            return this.View();
         }
     }
 }

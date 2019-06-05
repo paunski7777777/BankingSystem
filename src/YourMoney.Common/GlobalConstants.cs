@@ -79,6 +79,16 @@
         public const string AdditionalTermsAddDisplayName = "Допълнителни условия";
         public const string BonusesAddDisplayName = "Бонуси";
         public const string BankAddDisplayName = "Банка";
+        public const string InterestForOneMonthDisplayName = "Лихва за 1 месец";
+        public const string InterestForThreeMonthsDisplayName = "Лихва за 3 месеца";
+        public const string InterestForSixMonthsDisplayName = "Лихва за 6 месеца";
+        public const string InterestForNineMonthsDisplayName = "Лихва за 9 месеца";
+        public const string InterestForTwelveMonthsDisplayName = "Лихва за 12 месеца";
+        public const string InterestForEighteenMonthsDisplayName = "Лихва за 18 месеца";
+        public const string InterestForTwentyFourMonthsDisplayName = "Лихва за 24 месеца";
+        public const string InterestForThirtySixMonthsDisplayName = "Лихва за 36 месеца";
+        public const string InterestForFortyEightMonthsDisplayName = "Лихва за 48 месеца";
+        public const string InterestForSixtyMonthsDisplayName = "Лихва за 60 месеца";
 
         // Areas
         public const string EmptyArea = "";

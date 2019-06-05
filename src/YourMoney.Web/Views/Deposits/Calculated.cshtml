@@ -1,6 +1,4 @@
-﻿@using YourMoney.Common
-
-@model YourMoney.Web.Models.Deposits.DetailsDepositViewModel
+﻿@model YourMoney.Web.Models.Deposits.CalculatedDepositViewModel
 
 @{
     ViewData["Title"] = "Детайли на депозита";
@@ -24,14 +22,54 @@
                 @Html.DisplayFor(model => model.BankName)
             </dd>
         </dl>
-
         <div>
             <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                Лихвени условия
+                Доходност на избрания депозит
             </a>
         </div>
         <hr />
         <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Interest)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ShowInterest)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.TotalPaid)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ShowTotalPaid)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InterestAmount)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ShowInterestAmount)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InterestTax)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ShowInterestTax)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NetPaid)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ShowNetPaid)
+                </dd>
+            </dl>
+        </div>
+        <hr />
+        <div>
+            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
+                Лихвени условия
+            </a>
+        </div>
+        <hr />
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
             <dl class="row">
                 <dt class="col-sm-2">
                     @Html.DisplayNameFor(model => model.DepositType)
@@ -73,12 +111,12 @@
         </div>
         <hr />
         <div>
-            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
+            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">
                 Основни параметри на избрания депозит
             </a>
         </div>
         <hr />
-        <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <div class="collapse multi-collapse" id="multiCollapseExample3">
             <dl class="row">
                 <dt class="col-sm-2">
                     @Html.DisplayNameFor(model => model.Currency)
@@ -126,12 +164,12 @@
         </div>
         <hr />
         <div>
-            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">
+            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false" aria-controls="multiCollapseExample4">
                 Опции
             </a>
         </div>
         <hr />
-        <div class="collapse multi-collapse" id="multiCollapseExample3">
+        <div class="collapse multi-collapse" id="multiCollapseExample4">
             <dl class="row">
                 <dt class="col-sm-2">
                     @Html.DisplayNameFor(model => model.ValidForCustomer)
@@ -172,16 +210,5 @@
             </dl>
         </div>
         <hr />
-    </div>
-    <div>
-        @if (this.User.IsInRole(GlobalConstants.AdminRoleName))
-        {
-            <a asp-area="Admin" asp-controller="Deposits" asp-action="Edit" asp-route-id="@Model.Id">Промени</a> @Html.Raw("|")
-            <a asp-area="Admin" asp-controller="Deposits" asp-action="All">Назад към всички депозити</a>
-        }
-        else
-        {
-            <a asp-area="" asp-controller="Deposits" asp-action="All">Назад към всички депозити</a>
-        }
     </div>
 </div>

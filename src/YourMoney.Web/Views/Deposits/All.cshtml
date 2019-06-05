@@ -21,16 +21,18 @@
                 </tr>
                 @foreach (var deposit in Model.Deposits)
                 {
-                <tr>
-                    <td>@deposit.BankName</td>
-                    <td>@deposit.Name</td>
-                    <td>@deposit.MinimumAmount</td>
-                    <td>@deposit.Interest</td>
-                    <td>@deposit.InterestPayment.GetDisplayName()</td>
-                    <td>
-                        <a class="btn btn-primary text-white">Изчисли</a>
-                    <td>
-                </tr>
+                    <tr>
+                        <td>@deposit.BankName</td>
+                        <td>@deposit.Name</td>
+                        <td>@deposit.MinimumAmount</td>
+                        <td>@deposit.Interest</td>
+                        <td>@deposit.InterestPayment.GetDisplayName()</td>
+                        <td>
+                            <a asp-area="" asp-controller="Deposits" asp-action="Details" asp-route-id="@deposit.Id" class="btn btn-primary text-white">
+                                Детайли
+                            </a>
+                        <td>
+                    </tr>
                 }
             </tbody>
         </table>

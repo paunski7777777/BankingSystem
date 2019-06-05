@@ -5,7 +5,7 @@
     using YourMoney.Common;
     using YourMoney.Models.Enums;
 
-    public class DepositDetailsViewModel
+    public class DetailsDepositViewModel
     {
         public int Id { get; set; }
 
