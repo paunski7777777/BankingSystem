@@ -55,7 +55,7 @@
         public const string DepositAddDisplayName = "Име на депозита";
         public const string MinimumAmountAddDisplayName = "Минимална сума";
         public const string MaximumAmountAddDisplayName = "Максимален размер на депозита";
-        public const string InterestAddDisplayName = "Ефективна Годишна Лихва";
+        public const string EffectiveAnnualInterestRateAddDisplayName = "Ефективна Годишна Лихва";
         public const string TotalPaidAddDisplayName = "Общо изплатени";
         public const string InterestAmountAddDisplayName = "Сума на лихвата";
         public const string InterestTaxAddDisplayName = "Данък върху лихвата";
@@ -117,5 +117,9 @@
         public const string DepositDisplayName = "Име на депозита";
         public const string DepositDetailsDislpayName = "Депозит";
 
+        // Payment plan
+        public const string AmountPaymentPlanDisplayName = "Депозирана сума";
+        public const string InterestPaymentPlanDisplayName = "Лихва";
+        public const string InterestAmountPaymentPlanDisplayName = "Вноска лихва";
     }
 }

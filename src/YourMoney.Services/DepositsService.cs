@@ -15,6 +15,7 @@
     {
         private const int HundredPercentValue = 100;
         private const int ZeroValue = 0;
+        private const int OneValue = 1;
         private const decimal InterestTaxValue = 0.08m;
 
         private readonly ApplicationDbContext dbContext;
@@ -154,6 +155,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForOneMonth;
+                    deposit.DepositTerm = DepositTerm.OneMonth;
                 }
 
                 this.dbContext.SaveChanges();
@@ -163,6 +165,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForThreeMonths;
+                    deposit.DepositTerm = DepositTerm.ThreeMonths;
                 }
 
                 this.dbContext.SaveChanges();
@@ -172,6 +175,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForSixMonths;
+                    deposit.DepositTerm = DepositTerm.SixMonths;
                 }
 
                 this.dbContext.SaveChanges();
@@ -181,6 +185,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForNineMonths;
+                    deposit.DepositTerm = DepositTerm.NineMonths;
                 }
 
                 this.dbContext.SaveChanges();
@@ -190,6 +195,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForTwelveMonths;
+                    deposit.DepositTerm = DepositTerm.TwelveMonths;
                 }
 
                 this.dbContext.SaveChanges();
@@ -199,6 +205,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForEighteenMonths;
+                    deposit.DepositTerm = DepositTerm.EighteenMonths;
                 }
 
                 this.dbContext.SaveChanges();
@@ -208,6 +215,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForTwentyFourMonths;
+                    deposit.DepositTerm = DepositTerm.TwentyFourMonths;
                 }
 
                 this.dbContext.SaveChanges();
@@ -217,6 +225,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForThirtySixMonths;
+                    deposit.DepositTerm = DepositTerm.ThirtySixMonths;
                 }
 
                 this.dbContext.SaveChanges();
@@ -226,6 +235,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForFortyEightMonths;
+                    deposit.DepositTerm = DepositTerm.FortyEightMonths;
                 }
 
                 this.dbContext.SaveChanges();
@@ -236,6 +246,7 @@
                 foreach (var deposit in deposits)
                 {
                     deposit.Interest = deposit.InterestForSixtyMonths;
+                    deposit.DepositTerm = DepositTerm.SixtyMonths;
                 }
 
                 this.dbContext.SaveChanges();
@@ -256,6 +267,7 @@
         {
             var deposit = this.dbContext.Deposits.FirstOrDefault(d => d.Id == depositId);
 
+            deposit.EffectiveAnnualInterestRate = ZeroValue;
             deposit.InterestTax = ZeroValue;
             deposit.TotalPaid = ZeroValue;
             deposit.InterestAmount = ZeroValue;
@@ -267,11 +279,62 @@
             deposit.InterestAmount += deposit.TotalPaid - deposit.Amount;
             deposit.InterestTax += deposit.InterestAmount * InterestTaxValue;
             deposit.NetPaid += deposit.TotalPaid - deposit.InterestTax;
+            deposit.EffectiveAnnualInterestRate = ((deposit.NetPaid / deposit.Amount) - OneValue) * HundredPercentValue;
 
             this.dbContext.SaveChanges();
         }
 
         private IEnumerable<TModel> By<TModel>(Func<Deposit, bool> predicate)
             => this.dbContext.Deposits.Where(predicate).AsQueryable().ProjectTo<TModel>();
+
+        public void Edit(int depositId, string depositName, decimal minimumAmount, decimal maximumAmount, 
+            DepositType depositType, string contractualInterest, Currency currency, InterestPayment interestPayment,
+            DepositFor depositFor, InterestType interestType, IncreasingAmount increasingAmount, 
+            OverdraftOpportunity overdraftOpportunity, CreditOpportunity creditOpportunity, 
+            InterestCapitalize interestCapitalize, string maximumMonthPeriod, string minimumMonthPeriod, 
+            string validDepositDeadlines, ValidForCustomer validForCustomer, MonthlyAccrual monthlyAccrual, 
+            string additionalTerms, string bonuses, int bankId, 
+            decimal interestForOneMonth, decimal interestForThreeMonths, decimal interestForSixMonths,
+            decimal interestForNineMonths, decimal interestForTwelveMonths, decimal interestForEighteenMonths,
+            decimal interestForTwentyFourMonths, decimal interestForThirtySixMonths, decimal interestForFortyEightMonths,
+            decimal interestForSixtyMonths)
+        {
+            var deposit = this.dbContext.Deposits.FirstOrDefault(d => d.Id == depositId);
+            
+            deposit.Name = depositName;
+            deposit.MinimumAmount = minimumAmount;
+            deposit.MaximumAmount = maximumAmount;
+            deposit.DepositType = depositType;
+            deposit.ContractualInterest = contractualInterest;
+            deposit.Currency = currency;
+            deposit.InterestPayment = interestPayment;
+            deposit.DepositFor = depositFor;
+            deposit.InterestType = interestType;
+            deposit.IncreasingAmount = increasingAmount;
+            deposit.OverdraftOpportunity = overdraftOpportunity;
+            deposit.CreditOpportunity = creditOpportunity;
+            deposit.InterestCapitalize = interestCapitalize;
+            deposit.MaximumMonthPeriod = maximumMonthPeriod;
+            deposit.MinimumMonthPeriod = minimumMonthPeriod;
+            deposit.ValidDepositDeadlines = validDepositDeadlines;
+            deposit.ValidForCustomer = validForCustomer;
+            deposit.MonthlyAccrual = monthlyAccrual;
+            deposit.AdditionalTerms = additionalTerms;
+            deposit.Bonuses = bonuses;
+            deposit.BankId = bankId;
+            deposit.InterestForOneMonth = interestForOneMonth;
+            deposit.InterestForThreeMonths = interestForThreeMonths;
+            deposit.InterestForSixMonths = interestForSixMonths;
+            deposit.InterestForNineMonths = interestForNineMonths;
+            deposit.InterestForTwelveMonths = interestForTwelveMonths;
+            deposit.InterestForTwentyFourMonths = interestForTwentyFourMonths;
+            deposit.InterestForThirtySixMonths = interestForThirtySixMonths;
+            deposit.InterestForFortyEightMonths = interestForFortyEightMonths;
+            deposit.InterestForSixtyMonths = interestForSixtyMonths;
+
+            this.dbContext.Update(deposit);
+            this.dbContext.SaveChanges();
+
+        }
     }
 }

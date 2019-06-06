@@ -12,8 +12,14 @@
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
-            <dd class="col-sm-10">
+            <dd class="col-sm-8">
                 @Html.DisplayFor(model => model.Name)
+
+            </dd>
+            <dd class="col-sm-2">
+                <a asp-area="" asp-controller="Deposits" asp-action="PaymentPlan" asp-route-id="@Model.Id">
+                    Разплащателен план
+                </a>
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.BankName)
@@ -31,10 +37,10 @@
         <div class="collapse multi-collapse" id="multiCollapseExample1">
             <dl class="row">
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Interest)
+                    @Html.DisplayNameFor(model => model.EffectiveAnnualInterestRate)
                 </dt>
                 <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.ShowInterest)
+                    @Html.DisplayFor(model => model.ShowEffectiveAnnualInterestRate)
                 </dd>
                 <dt class="col-sm-2">
                     @Html.DisplayNameFor(model => model.TotalPaid)

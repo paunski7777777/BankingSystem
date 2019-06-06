@@ -33,7 +33,6 @@
         [Display(Name = GlobalConstants.MonthlyAccrualAddDisplayName)]
         public MonthlyAccrual MonthlyAccrual { get; set; }
 
-
         [Display(Name = GlobalConstants.CurrencyAddDisplayName)]
         public Currency Currency { get; set; }
 
@@ -54,7 +53,6 @@
 
         [Display(Name = GlobalConstants.ValidDepositDeadlinesAddDisplayName)]
         public string ValidDepositDeadlines { get; set; }
-
 
         [Display(Name = GlobalConstants.ValidForCustomerAddDisplayName)]
         public ValidForCustomer ValidForCustomer { get; set; }

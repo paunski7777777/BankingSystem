@@ -27,6 +27,7 @@
             this.CreateMap<Deposit, DepositBankDetailsViewModel>();
             this.CreateMap<Deposit, ComparedDepositViewModel>();
             this.CreateMap<Deposit, CalculatedDepositViewModel>();
+            this.CreateMap<Deposit, PaymentPlanDepositViewModel>();
             this.CreateMap<Deposit, Models.Deposits.DepositViewModel>();
             this.CreateMap<Deposit, Areas.Admin.Models.Deposits.DepositViewModel>();
         }

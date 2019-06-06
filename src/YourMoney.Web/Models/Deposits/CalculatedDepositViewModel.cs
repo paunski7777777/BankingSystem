@@ -13,9 +13,9 @@
         private const string GBPcurrencyDisplayName = "GBP";
         private const string USDcurrencyDisplayName = "USD";
 
-        [Display(Name = GlobalConstants.InterestAddDisplayName)]
-        public decimal Interest { get; set; }
-        public string ShowInterest => $"{this.Interest} {PercentSymbol}";
+        [Display(Name = GlobalConstants.EffectiveAnnualInterestRateAddDisplayName)]
+        public decimal EffectiveAnnualInterestRate { get; set; }
+        public string ShowEffectiveAnnualInterestRate => $"{this.EffectiveAnnualInterestRate:f2} {PercentSymbol}";
 
         [Display(Name = GlobalConstants.TotalPaidAddDisplayName)]
         public decimal TotalPaid { get; set; }

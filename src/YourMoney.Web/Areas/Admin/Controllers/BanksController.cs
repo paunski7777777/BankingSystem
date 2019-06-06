@@ -85,13 +85,13 @@
             }
 
 
-            var bank = this.banksService.GetById<BankViewModel>(id);
+            var bank = this.banksService.GetById<EditBankInputModel>(id);
 
             return this.View(bank);
         }
 
         [HttpPost]
-        public IActionResult Edit(BankViewModel model)
+        public IActionResult Edit(EditBankInputModel model)
         {
             if (!this.ModelState.IsValid)
             {

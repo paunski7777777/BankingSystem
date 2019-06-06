@@ -91,5 +91,12 @@
 
             return this.View(deposit);
         }
+
+        public IActionResult PaymentPlan(int id)
+        {
+            var paymentPlanDepositViewModel = this.depositsService.GetById<PaymentPlanDepositViewModel>(id);
+
+            return this.View(paymentPlanDepositViewModel);
+        }
     }
 }

@@ -219,6 +219,8 @@ namespace YourMoney.Data.Migrations
 
                     b.Property<int>("DepositType");
 
+                    b.Property<decimal>("EffectiveAnnualInterestRate");
+
                     b.Property<int>("IncreasingAmount");
 
                     b.Property<decimal>("Interest");

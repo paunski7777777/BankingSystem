@@ -36,7 +36,6 @@
         public decimal Amount { get; set; }
         public decimal Interest { get; set; }
 
-
         public decimal InterestForOneMonth { get; set; }
         public decimal InterestForThreeMonths { get; set; }
         public decimal InterestForSixMonths { get; set; }
@@ -48,6 +47,7 @@
         public decimal InterestForFortyEightMonths { get; set; }
         public decimal InterestForSixtyMonths { get; set; }
 
+        public decimal EffectiveAnnualInterestRate { get; set; }
         public decimal TotalPaid { get; set; }
         public decimal InterestAmount { get; set; }
         public decimal InterestTax { get; set; }

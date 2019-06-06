@@ -6,12 +6,23 @@
 
     public interface IDepositsService
     {
-        void Add(string depositName, decimal MinimumAmount, decimal MaximumAmount, DepositType DepositType,
-            string ContractualInterest, Currency Currency, InterestPayment InterestPayment, DepositFor DepositFor,
-            InterestType InterestType, IncreasingAmount IncreasingAmount, OverdraftOpportunity OverdraftOpportunity,
-            CreditOpportunity CreditOpportunity, InterestCapitalize InterestCapitalize, string MaximumMonthPeriod,
-            string MinimumMonthPeriod, string ValidDepositDeadlines, ValidForCustomer ValidForCustomer,
-            MonthlyAccrual MonthlyAccrual, string AdditionalTerms, string bonuses, int BankId,
+        void Add(string depositName, decimal minimumAmount, decimal maximumAmount, DepositType depositType,
+            string contractualInterest, Currency currency, InterestPayment interestPayment, DepositFor depositFor,
+            InterestType interestType, IncreasingAmount increasingAmount, OverdraftOpportunity overdraftOpportunity,
+            CreditOpportunity creditOpportunity, InterestCapitalize interestCapitalize, string maximumMonthPeriod,
+            string minimumMonthPeriod, string validDepositDeadlines, ValidForCustomer validForCustomer,
+            MonthlyAccrual monthlyAccrual, string additionalTerms, string bonuses, int bankId,
+            decimal interestForOneMonth, decimal interestForThreeMonths, decimal interestForSixMonths,
+            decimal interestForNineMonths, decimal interestForTwelveMonths, decimal interestForEighteenMonths,
+            decimal interestForTwentyFourMonths, decimal interestForThirtySixMonths, decimal interestForFortyEightMonths,
+            decimal interestForSixtyMonths);
+
+        void Edit(int depositId, string depositName, decimal minimumAmount, decimal maximumAmount, DepositType depositType,
+            string contractualInterest, Currency currency, InterestPayment interestPayment, DepositFor depositFor,
+            InterestType interestType, IncreasingAmount increasingAmount, OverdraftOpportunity overdraftOpportunity,
+            CreditOpportunity creditOpportunity, InterestCapitalize interestCapitalize, string maximumMonthPeriod,
+            string minimumMonthPeriod, string validDepositDeadlines, ValidForCustomer validForCustomer,
+            MonthlyAccrual monthlyAccrual, string additionalTerms, string bonuses, int bankId,
             decimal interestForOneMonth, decimal interestForThreeMonths, decimal interestForSixMonths,
             decimal interestForNineMonths, decimal interestForTwelveMonths, decimal interestForEighteenMonths,
             decimal interestForTwentyFourMonths, decimal interestForThirtySixMonths, decimal interestForFortyEightMonths,

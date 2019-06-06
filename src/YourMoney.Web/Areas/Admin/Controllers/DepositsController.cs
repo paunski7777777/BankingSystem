@@ -108,10 +108,51 @@
             return this.View(allDepositsViewModel);
         }
 
-        public IActionResult PaymentPlan()
+        public IActionResult Edit(int id)
         {
 
-            return this.View();
+            var depositExists = this.depositsService.ExistsById(id);
+            if (!depositExists)
+            {
+                var errorViewModel = new ErrorViewModel
+                {
+                    ErrorMessage = string.Format(ErrorMessages.InvalidDepositIdMessage, id)
+                };
+
+                return this.View(viewName: GlobalConstants.ErrorViewName, model: errorViewModel);
+            }
+
+
+            var deposit = this.depositsService.GetById<EditDepositInputModel>(id);
+
+            var banks = this.banksService.All<SelectListItem>().ToList();
+            deposit.Banks = banks;
+
+            return this.View(deposit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditDepositInputModel model)
+        {
+            var banks = this.banksService.All<SelectListItem>().ToList();
+
+            if (!this.ModelState.IsValid)
+            {
+                model.Banks = banks;
+
+                return this.View(model);
+            }
+
+            this.depositsService.Edit(model.Id, model.Name, model.MinimumAmount, model.MaximumAmount, model.DepositType,
+                model.ContractualInterest, model.Currency, model.InterestPayment, model.DepositFor, model.InterestType,
+                model.IncreasingAmount, model.OverdraftOpportunity, model.CreditOpportunity, model.InterestCapitalize,
+                model.MaximumMonthPeriod, model.MinimumMonthPeriod, model.ValidDepositDeadlines, model.ValidForCustomer,
+                model.MonthlyAccrual, model.AdditionalTerms, model.Bonuses, model.BankId,
+                model.InterestForOneMonth, model.InterestForThreeMonths, model.InterestForSixMonths, model.InterestForNineMonths,
+                model.InterestForTwelveMonths, model.InterestForEighteenMonths, model.InterestForTwentyFourMonths,
+                model.InterestForThirtySixMonths, model.InterestForFortyEightMonths, model.InterestForSixtyMonths);
+
+            return this.RedirectToAction(nameof(All));
         }
     }
 }

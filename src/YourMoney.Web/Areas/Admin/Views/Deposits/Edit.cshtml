@@ -1,0 +1,201 @@
+﻿@using YourMoney.Models.Enums
+
+@model  YourMoney.Web.Areas.Admin.Models.Deposits.EditDepositInputModel
+
+@{
+    ViewData["Title"] = "Промени депозит";
+}
+
+<div class="container">
+    <h1>@this.ViewData["Title"]</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-area="Admin" asp-controller="Deposits" asp-action="Edit" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="MinimumAmount" class="control-label"></label>
+                        <input asp-for="MinimumAmount" type="number" min="0" class="form-control">
+                        <span asp-validation-for="MinimumAmount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="MaximumAmount" class="control-label"></label>
+                        <input asp-for="MaximumAmount" type="number" min="0.00" class="form-control">
+                        <span asp-validation-for="MaximumAmount" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContractualInterest" class="control-label"></label>
+                    <textarea asp-for="ContractualInterest" class="form-control" rows="10" cols="10"></textarea>
+                    <span asp-validation-for="ContractualInterest" class="text-danger"></span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="InterestForOneMonth" class="control-label"></label>
+                        <input asp-for="InterestForOneMonth" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForOneMonth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="InterestForThreeMonths" class="control-label"></label>
+                        <input asp-for="InterestForThreeMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForThreeMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="InterestForSixMonths" class="control-label"></label>
+                        <input asp-for="InterestForSixMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForSixMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="InterestForNineMonths" class="control-label"></label>
+                        <input asp-for="InterestForNineMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForNineMonths" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForTwelveMonths" class="control-label"></label>
+                        <input asp-for="InterestForTwelveMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForTwelveMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForEighteenMonths" class="control-label"></label>
+                        <input asp-for="InterestForEighteenMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForEighteenMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForTwentyFourMonths" class="control-label"></label>
+                        <input asp-for="InterestForTwentyFourMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForTwentyFourMonths" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForThirtySixMonths" class="control-label"></label>
+                        <input asp-for="InterestForThirtySixMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForThirtySixMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForFortyEightMonths" class="control-label"></label>
+                        <input asp-for="InterestForFortyEightMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForFortyEightMonths" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestForSixtyMonths" class="control-label"></label>
+                        <input asp-for="InterestForSixtyMonths" min="0.00" class="form-control">
+                        <span asp-validation-for="InterestForSixtyMonths" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="DepositType" class="control-label"></label>
+                        <select asp-for="DepositType" asp-items="Html.GetEnumSelectList<DepositType>()" class="form-control"></select>
+                        <span asp-validation-for="DepositType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="Currency" class="control-label"></label>
+                        <select asp-for="Currency" asp-items="Html.GetEnumSelectList<Currency>()" class="form-control"></select>
+                        <span asp-validation-for="Currency" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestPayment" class="control-label"></label>
+                        <select asp-for="InterestPayment" asp-items="Html.GetEnumSelectList<InterestPayment>()" class="form-control"></select>
+                        <span asp-validation-for="InterestPayment" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="DepositFor" class="control-label"></label>
+                        <select asp-for="DepositFor" asp-items="Html.GetEnumSelectList<DepositFor>()" class="form-control"></select>
+                        <span asp-validation-for="DepositFor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="InterestType" class="control-label"></label>
+                        <select asp-for="InterestType" asp-items="Html.GetEnumSelectList<InterestType>()" class="form-control"></select>
+                        <span asp-validation-for="InterestType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <div class="form-group">
+                            <label asp-for="IncreasingAmount" class="control-label"></label>
+                            <select asp-for="IncreasingAmount" asp-items="Html.GetEnumSelectList<IncreasingAmount>()" class="form-control"></select>
+                            <span asp-validation-for="IncreasingAmount" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label asp-for="OverdraftOpportunity" class="control-label"></label>
+                        <select asp-for="OverdraftOpportunity" asp-items="Html.GetEnumSelectList<OverdraftOpportunity>()" class="form-control"></select>
+                        <span asp-validation-for="OverdraftOpportunity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label asp-for="CreditOpportunity" class="control-label"></label>
+                        <select asp-for="CreditOpportunity" asp-items="Html.GetEnumSelectList<CreditOpportunity>()" class="form-control"></select>
+                        <span asp-validation-for="CreditOpportunity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="InterestCapitalize" class="control-label"></label>
+                        <select asp-for="InterestCapitalize" asp-items="Html.GetEnumSelectList<InterestCapitalize>()" class="form-control"></select>
+                        <span asp-validation-for="InterestCapitalize" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="MaximumMonthPeriod" class="control-label"></label>
+                        <input asp-for="MaximumMonthPeriod" class="form-control" />
+                        <span asp-validation-for="MaximumMonthPeriod" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="MinimumMonthPeriod" class="control-label"></label>
+                        <input asp-for="MinimumMonthPeriod" class="form-control" />
+                        <span asp-validation-for="MinimumMonthPeriod" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="ValidDepositDeadlines" class="control-label"></label>
+                        <input asp-for="ValidDepositDeadlines" class="form-control" />
+                        <span asp-validation-for="ValidDepositDeadlines" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="ValidForCustomer" class="control-label"></label>
+                        <select asp-for="ValidForCustomer" asp-items="Html.GetEnumSelectList<ValidForCustomer>()" class="form-control"></select>
+                        <span asp-validation-for="ValidForCustomer" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="MonthlyAccrual" class="control-label"></label>
+                        <select asp-for="MonthlyAccrual" asp-items="Html.GetEnumSelectList<MonthlyAccrual>()" class="form-control"></select>
+                        <span asp-validation-for="MonthlyAccrual" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdditionalTerms" class="control-label"></label>
+                    <textarea asp-for="AdditionalTerms" class="form-control" rows="10" cols="10"></textarea>
+                    <span asp-validation-for="AdditionalTerms" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Bonuses" class="control-label"></label>
+                    <textarea asp-for="Bonuses" class="form-control" rows="10" cols="10"></textarea>
+                    <span asp-validation-for="Bonuses" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BankId" class="control-label"></label>
+                    <select asp-for="BankId" class="form-control" asp-items="@Model.Banks"></select>
+                    <span asp-validation-for="BankId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Добави" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-area="" asp-controller="Deposits" asp-action="All">Назад към всички депозити</a>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+﻿@model YourMoney.Web.Models.Deposits.PaymentPlanDepositViewModel
+
+@{
+    ViewData["Title"] = "Разплащателен план";
+}
+
+<div class="container">
+    <h1>@this.ViewData["Title"]</h1>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BankName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BankName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Currency)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Currency)
+            </dd>
+        </dl>
+        <div>
+            <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                Доходност на избрания депозит
+            </a>
+        </div>
+        <hr />
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.EffectiveAnnualInterestRate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ShowEffectiveAnnualInterestRate)
+                </dd>
+            </dl>
+        </div>
+        <table class="table-hover table">
+            <tbody>
+                <tr class="active">
+                    <th>№</th>
+                    <th>Депозирана сума</th>
+                    <th>Лихва</th>
+                    <th>Вноска лихва</th>
+                    <th>Данък върху лихвата</th>
+                    <th>Нетно изплатени</th>
+                </tr>
+                @for (int i = 1; i <= Model.Months; i++)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@Model.Amount</td>
+                        @if (i == 6)
+                        {
+                            <td>@Model.Interest</td>
+                            <td>@Model.InterestAmount</td>
+                            <td>@Model.InterestTax</td>
+                            <td>@Model.NetPaid</td>
+                        }
+                        else if (i == 12)
+                        {
+                            <td>@Model.Interest</td>
+                            <td>@Model.InterestAmount</td>
+                            <td>@Model.InterestTax</td>
+                            <td>@(Model.NetPaid + Model.InterestAmount - Model.InterestTax)</td>
+                        }
+                        else
+                        {
+                            <td>0.00</td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

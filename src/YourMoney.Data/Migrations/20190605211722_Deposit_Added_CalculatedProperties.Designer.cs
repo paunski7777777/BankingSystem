@@ -10,8 +10,8 @@ using YourMoney.Data;
 namespace YourMoney.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190605180318_Deposit_EditModel")]
-    partial class Deposit_EditModel
+    [Migration("20190605211722_Deposit_Added_CalculatedProperties")]
+    partial class Deposit_Added_CalculatedProperties
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -220,6 +220,8 @@ namespace YourMoney.Data.Migrations
                     b.Property<int>("DepositTerm");
 
                     b.Property<int>("DepositType");
+
+                    b.Property<decimal>("EffectiveAnnualInterestRate");
 
                     b.Property<int>("IncreasingAmount");
 
