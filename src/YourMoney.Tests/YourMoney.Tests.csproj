@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.4" />
+    <PackageReference Include="nunit" Version="3.11.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YourMoney.Common\YourMoney.Common.csproj" />
+    <ProjectReference Include="..\YourMoney.Data\YourMoney.Data.csproj" />
+    <ProjectReference Include="..\YourMoney.Models\YourMoney.Models.csproj" />
+    <ProjectReference Include="..\YourMoney.Services\YourMoney.Services.csproj" />
+    <ProjectReference Include="..\YourMoney.Web\YourMoney.Web.csproj" />
+  </ItemGroup>
+
+</Project>
