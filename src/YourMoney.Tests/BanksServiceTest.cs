@@ -66,8 +66,8 @@ namespace Tests
             var result = dbContext.Banks.FirstOrDefault();
 
             Assert.Null(result);
-        }
 
+        }
         [Test]
         public void ExistByIdMethodShouldCheckIfThereIsBankWithThatId()
         {
@@ -83,7 +83,7 @@ namespace Tests
             items.Add(item.Name);
 
             var result = items.ExistsById(item.Id);
-            
+
             Assert.True(result);
         }
 
@@ -106,4 +106,5 @@ namespace Tests
             Assert.True(result);
         }
     }
+    
 }
