@@ -1,4 +1,6 @@
-﻿namespace YourMoney.Web.Controllers
+﻿using Microsoft.AspNetCore.Authorization;
+
+namespace YourMoney.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
 
@@ -62,6 +64,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Compare(CompareDepositInputModel model)
         {
             if (!this.ModelState.IsValid)

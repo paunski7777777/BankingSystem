@@ -5,20 +5,12 @@
 @{
     ViewData["Title"] = "Срочни депозити - резултати от търсене";
 }
-@if (!Model.Deposits.Any())
-{
-    
-    <div class="container">
-        <h3 class="text-left" style="color:red">Все още не са добавени депозити.</h3>
-    </div>
-}
-else
-{
-    <div class="container">
-        <h2 class="text-center">@this.ViewData["Title"]</h2>
-        <div class="table-responsive-lg">
-            <table class="table-hover table">
-                <tbody>
+
+<div class="container">
+    <h2 class="text-center">@this.ViewData["Title"]</h2>
+    <div class="table-responsive-lg">
+        <table class="table-hover table">
+            <tbody>
                 <tr class="active">
                     <th>Банка</th>
                     <th>Име на депозита</th>
@@ -27,23 +19,33 @@ else
                     <th>Вид лихва</th>
                     <th></th>
                 </tr>
-                @foreach (var deposit in Model.Deposits)
+                @if (!Model.Deposits.Any())
                 {
-                    <tr>
-                        <td>@deposit.BankName</td>
-                        <td>@deposit.Name</td>
-                        <td>@deposit.Interest</td>
-                        <td>@deposit.MinimumAmount</td>
-                        <td>@deposit.InterestType.GetDisplayName()</td>
-                        <td>
-                        <a asp-area="" asp-controller="Deposits" asp-action="Calculated" asp-route-id="@deposit.Id" class="btn btn-primary text-white">
-                            Изчисли
-                        </a>
-                        <td>
-                    </tr>
+
+                    <div class="container">
+                        <h3 class="text-left" style="color:red">Все още не са добавени депозити.</h3>
+                    </div>
                 }
-                </tbody>
-            </table>
-        </div>
+                else
+                {
+                    @foreach (var deposit in Model.Deposits)
+                    {
+                        <tr>
+                            <td>@deposit.BankName</td>
+                            <td>@deposit.Name</td>
+                            <td>@deposit.Interest</td>
+                            <td>@deposit.MinimumAmount</td>
+                            <td>@deposit.InterestType.GetDisplayName()</td>
+                            <td>
+                                <a asp-area="" asp-controller="Deposits" asp-action="Calculated" asp-route-id="@deposit.Id" class="btn btn-primary text-white">
+                                    Изчисли
+                                </a>
+                            <td>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+        </table>
     </div>
-}
+</div>
