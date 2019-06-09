@@ -159,6 +159,7 @@
                 }
 
                 this.dbContext.SaveChanges();
+                return;
             }
             if (depositTerm == DepositTerm.ThreeMonths)
             {
@@ -169,6 +170,7 @@
                 }
 
                 this.dbContext.SaveChanges();
+                return;
             }
             if (depositTerm == DepositTerm.SixMonths)
             {
@@ -179,6 +181,7 @@
                 }
 
                 this.dbContext.SaveChanges();
+                return;
             }
             if (depositTerm == DepositTerm.NineMonths)
             {
@@ -189,6 +192,7 @@
                 }
 
                 this.dbContext.SaveChanges();
+                return;
             }
             if (depositTerm == DepositTerm.TwelveMonths)
             {
@@ -199,6 +203,7 @@
                 }
 
                 this.dbContext.SaveChanges();
+                return;
             }
             if (depositTerm == DepositTerm.EighteenMonths)
             {
@@ -209,6 +214,7 @@
                 }
 
                 this.dbContext.SaveChanges();
+                return;
             }
             if (depositTerm == DepositTerm.TwentyFourMonths)
             {
@@ -219,6 +225,7 @@
                 }
 
                 this.dbContext.SaveChanges();
+                return;
             }
             if (depositTerm == DepositTerm.ThirtySixMonths)
             {
@@ -229,6 +236,7 @@
                 }
 
                 this.dbContext.SaveChanges();
+                return;
             }
             if (depositTerm == DepositTerm.FortyEightMonths)
             {
@@ -239,7 +247,7 @@
                 }
 
                 this.dbContext.SaveChanges();
-
+                return;
             }
             if (depositTerm == DepositTerm.SixtyMonths)
             {
@@ -250,6 +258,7 @@
                 }
 
                 this.dbContext.SaveChanges();
+                return;
             }
         }
 
