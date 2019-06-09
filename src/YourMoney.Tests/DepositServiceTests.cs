@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
@@ -13,9 +14,10 @@ using YourMoney.Tests.Base;
 
 namespace YourMoney.Tests
 {
-    public class DepositServiceTests:BaseServiceTests
+    public class DepositServiceTests : BaseServiceTests
     {
         private readonly IBanksService bankService;
+
         [Test]
         public void AddMethodShouldAddDeposit()
         {
@@ -23,7 +25,7 @@ namespace YourMoney.Tests
                 .UseInMemoryDatabase(databaseName: "AddDeposit_Deposits_DB")
                 .Options;
             var dbContext = new ApplicationDbContext(options);
-                
+
             var bank = new Bank()
             {
                 Id = 1,
@@ -31,15 +33,21 @@ namespace YourMoney.Tests
             };
             var banks = new BanksService(dbContext);
             dbContext.Banks.Add(bank);
-            var items = new DepositsService(dbContext,banks);
+            var items = new DepositsService(dbContext, banks);
 
-            items.Add("БНП Париба С.А.",2000,20000,DepositType.AdvancePaymentInterestDeposit, @"В зависимост от срока и сумата:
-            За срок от 12 месеца - 0.50 % ",Currency.BGN,InterestPayment.NoMatter,DepositFor.Retirees,InterestType.Fixed,IncreasingAmount.No,OverdraftOpportunity.No,CreditOpportunity.No,InterestCapitalize.No,"36",
-                "12","12,24,36",ValidForCustomer.No,MonthlyAccrual.No,"няма","няма",bank.Id,(decimal)0.1,(decimal)0.3,(decimal)0.6,(decimal)0.9,
-                (decimal)1.2,(decimal)1.8,(decimal)2.4,(decimal)3.6,(decimal)4.8,(decimal)6);
+            items.Add("БНП Париба С.А.", 2000, 20000, DepositType.AdvancePaymentInterestDeposit,
+                @"В зависимост от срока и сумата:
+            За срок от 12 месеца - 0.50 % ", Currency.BGN, InterestPayment.NoMatter, DepositFor.Retirees,
+                InterestType.Fixed, IncreasingAmount.No, OverdraftOpportunity.No, CreditOpportunity.No,
+                InterestCapitalize.No, "36",
+                "12", "12,24,36", ValidForCustomer.No, MonthlyAccrual.No, "няма", "няма", bank.Id, (decimal) 0.1,
+                (decimal) 0.3, (decimal) 0.6, (decimal) 0.9,
+                (decimal) 1.2, (decimal) 1.8, (decimal) 2.4, (decimal) 3.6, (decimal) 4.8, (decimal) 6);
 
             var result = dbContext.Deposits.Count();
-            Assert.AreEqual(1,result);
+            Assert.AreEqual(1, result);
         }
+
+        
     }
 }
