@@ -14,7 +14,7 @@ namespace YourMoney.Tests.Base
         public void TestInitialize()
         {
             Mapper.Reset();
-            Mapper.Initialize(cfg=> cfg.AddProfile<MappingProfile>());
+            Mapper.Initialize(cfg => cfg.AddProfile<MappingProfile>());
         }
 
 
