@@ -12,13 +12,15 @@
         <hr />
         <dl class="row">
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
+                @*@Html.DisplayNameFor(model => model.Name)*@
+                <label asp-for="Name"></label>
+            </dt>   
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Name)
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.BankName)
+                @*@Html.DisplayNameFor(model => model.BankName)*@
+                <label asp-for="BankName"></label>
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.BankName)
@@ -34,40 +36,53 @@
         <div class="collapse multi-collapse" id="multiCollapseExample1">
             <dl class="row">
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.DepositType)
+                    @*@Html.DisplayNameFor(model => model.DepositType)*@
+                    <label asp-for="DepositType"></label>
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.DepositType)
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.ContractualInterest)
+                    @*@Html.DisplayNameFor(model => model.ContractualInterest)*@
+                    <label asp-for="ContractualInterest"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.ContractualInterest)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.InterestType)
+                    @*@Html.DisplayNameFor(model => model.InterestType)*@
+                    <label asp-for="InterestType"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.InterestType)
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.InterestCapitalize)
+                    @*@Html.DisplayNameFor(model => model.InterestCapitalize)*@
+                    <label asp-for="InterestCapitalize"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.InterestCapitalize)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.InterestPayment)
+                    @*@Html.DisplayNameFor(model => model.InterestPayment)*@
+                    <label asp-for="InterestPayment"></label>
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.InterestPayment)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.MonthlyAccrual)
+                    @*@Html.DisplayNameFor(model => model.MonthlyAccrual)*@
+                    <label asp-for="MonthlyAccrual"></label>
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.MonthlyAccrual)
+
                 </dd>
             </dl>
         </div>
@@ -81,46 +96,66 @@
         <div class="collapse multi-collapse" id="multiCollapseExample2">
             <dl class="row">
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Currency)
+                    @*@Html.DisplayNameFor(model => model.Currency)*@
+                    <label asp-for="Currency"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.Currency)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.DepositFor)
+                    @*@Html.DisplayNameFor(model => model.DepositFor)*@
+                    <label asp-for="DepositFor"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.DepositFor)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.MaximumAmount)
+                    @*@Html.DisplayNameFor(model => model.MaximumAmount)*@
+                    <label asp-for="MaximumAmount"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.MaximumAmount)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.MinimumAmount)
+                    @*@Html.DisplayNameFor(model => model.MinimumAmount)*@
+                    <label asp-for="MinimumAmount"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.MinimumAmount)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.MaximumMonthPeriod)
+                    @*@Html.DisplayNameFor(model => model.MaximumMonthPeriod)*@
+                    <label asp-for="MaximumMonthPeriod"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.MaximumMonthPeriod)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.MinimumMonthPeriod)
+                    @*@Html.DisplayNameFor(model => model.MinimumMonthPeriod)*@
+                    <label asp-for="MinimumMonthPeriod"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.MinimumMonthPeriod)
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.ValidDepositDeadlines)
+                    @*@Html.DisplayNameFor(model => model.ValidDepositDeadlines)*@
+                    <label asp-for="ValidDepositDeadlines"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.ValidDepositDeadlines)
+
                 </dd>
             </dl>
         </div>
@@ -134,37 +169,54 @@
         <div class="collapse multi-collapse" id="multiCollapseExample3">
             <dl class="row">
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.ValidForCustomer)
+                    @*@Html.DisplayNameFor(model => model.ValidForCustomer)*@
+                    <label asp-for="ValidForCustomer"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.ValidForCustomer)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.CreditOpportunity)
+                    @*@Html.DisplayNameFor(model => model.CreditOpportunity)*@
+                    <label asp-for="CreditOpportunity"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.CreditOpportunity)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.OverdraftOpportunity)
+                    @*@Html.DisplayNameFor(model => model.OverdraftOpportunity)*@
+                    <label asp-for="OverdraftOpportunity"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.OverdraftOpportunity)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.IncreasingAmount)
+                    @*@Html.DisplayNameFor(model => model.IncreasingAmount)*@
+                    <label asp-for="IncreasingAmount"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.IncreasingAmount)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.AdditionalTerms)
+                    @*@Html.DisplayNameFor(model => model.AdditionalTerms)*@
+                    <label asp-for="AdditionalTerms"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.AdditionalTerms)
+
                 </dd>
                 <dt class="col-sm-2">
-                    @Html.DisplayNameFor(model => model.Bonuses)
+                    @*@Html.DisplayNameFor(model => model.Bonuses)*@
+                    <label asp-for="Bonuses"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.Bonuses)

@@ -11,18 +11,22 @@
         <dl class="row">
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Name)
+                <label asp-for="Name"></label>
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Name)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.BankName)
+                <label asp-for="BankName"></label>
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.BankName)
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Currency)
+                <label asp-for="Currency"></label>
+
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Currency)
@@ -38,9 +42,13 @@
             <dl class="row">
                 <dt class="col-sm-2">
                     @Html.DisplayNameFor(model => model.EffectiveAnnualInterestRate)
+                    <label asp-for="EffectiveAnnualInterestRate"></label>
+
                 </dt>
                 <dd class="col-sm-10">
                     @Html.DisplayFor(model => model.ShowEffectiveAnnualInterestRate)
+                    <label asp-for="ShowEffectiveAnnualInterestRate"></label>
+
                 </dd>
             </dl>
         </div>

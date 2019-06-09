@@ -9,24 +9,33 @@
     <p>
         <a asp-area="Admin" asp-controller="Banks" asp-action="add">Добави нова банка</a>
     </p>
-    <table class="table">
-        <thead>
+    @if (!Model.Banks.Any())
+    {
+        <div class="container">
+            <h3 class="text-left" style="color:red">Все още не са добавени банки.</h3>
+        </div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
             <tr>
                 <th>Банка</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             @foreach (var bank in Model.Banks)
             {
-            <tr>
-                <td>
-                    @bank.Name -
-                    <a asp-area="Admin" asp-controller="Banks" asp-action="Edit" asp-route-id="@bank.Id">Промени</a> |
-                    <a asp-area="Admin" asp-controller="Banks" asp-action="Details" asp-route-id="@bank.Id">Детайли</a> |
-                    <a asp-area="Admin" asp-controller="Banks" asp-action="Delete" asp-route-id="@bank.Id">Изтрий</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @bank.Name -
+                        <a asp-area="Admin" asp-controller="Banks" asp-action="Edit" asp-route-id="@bank.Id">Промени</a> |
+                        <a asp-area="Admin" asp-controller="Banks" asp-action="Details" asp-route-id="@bank.Id">Детайли</a> |
+                        <a asp-area="Admin" asp-controller="Banks" asp-action="Delete" asp-route-id="@bank.Id">Изтрий</a>
+                    </td>
+                </tr>
             }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    }
 </div>

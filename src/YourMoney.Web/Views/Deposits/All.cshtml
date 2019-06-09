@@ -5,12 +5,19 @@
 @{
     ViewData["Title"] = "Каталог";
 }
-
-<div class="container">
-    <h2 class="text-center">@this.ViewData["Title"]</h2>
-    <div class="table-responsive-lg">
-        <table class="table-hover table">
-            <tbody>
+@if (!Model.Deposits.Any())
+{
+    <div class="container">
+        <h3 class="text-left" style="color:red">Все още не са добавени банки.</h3>
+    </div>
+}
+else
+{
+    <div class="container">
+        <h2 class="text-center">@this.ViewData["Title"]</h2>
+        <div class="table-responsive-lg">
+            <table class="table-hover table">
+                <tbody>
                 <tr class="active">
                     <th>Банка</th>
                     <th>Име на депозита</th>
@@ -28,13 +35,14 @@
                         <td>@deposit.Interest</td>
                         <td>@deposit.InterestPayment.GetDisplayName()</td>
                         <td>
-                            <a asp-area="" asp-controller="Deposits" asp-action="Details" asp-route-id="@deposit.Id" class="btn btn-primary text-white">
-                                Детайли
-                            </a>
+                        <a asp-area="" asp-controller="Deposits" asp-action="Details" asp-route-id="@deposit.Id" class="btn btn-primary text-white">
+                            Детайли
+                        </a>
                         <td>
                     </tr>
                 }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+}

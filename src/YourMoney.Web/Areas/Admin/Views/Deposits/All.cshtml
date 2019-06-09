@@ -9,26 +9,37 @@
     <p>
         <a asp-area="Admin" asp-controller="Deposits" asp-action="Add">Добави нов депозит</a>
     </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Банка</th>
-                <th>Депозит</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var deposit in Model.Deposits)
-            {
+    @if (!Model.Deposits.Any())
+    {
+        <div class="container">
+            <h3 class="text-left" style="color:red">Все още не са добавени банки.</h3>
+        </div>
+    }
+    else
+    {
+
+
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@deposit.BankName</td>
-                    <td>
-                        @deposit.Name -
-                        <a asp-area="Admin" asp-controller="Deposits" asp-action="Edit" asp-route-id="@deposit.Id">Промени</a> |
-                        <a asp-area="" asp-controller="Deposits" asp-action="Details" asp-route-id="@deposit.Id">Детайли</a> |
-                        <a asp-area="Admin" asp-controller="Deposits" asp-action="Delete" asp-route-id="@deposit.Id">Изтрий</a>
-                    </td>
+                    <th>Банка</th>
+                    <th>Депозит</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var deposit in Model.Deposits)
+                {
+                    <tr>
+                        <td>@deposit.BankName</td>
+                        <td>
+                            @deposit.Name -
+                            <a asp-area="Admin" asp-controller="Deposits" asp-action="Edit" asp-route-id="@deposit.Id">Промени</a> |
+                            <a asp-area="" asp-controller="Deposits" asp-action="Details" asp-route-id="@deposit.Id">Детайли</a> |
+                            <a asp-area="Admin" asp-controller="Deposits" asp-action="Delete" asp-route-id="@deposit.Id">Изтрий</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </div>
