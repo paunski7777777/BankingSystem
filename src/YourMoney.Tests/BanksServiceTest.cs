@@ -46,5 +46,25 @@ namespace Tests
             
             Assert.AreEqual("DSK",result.Name);
         }
+
+        [Test]
+        public void RemoveMethodShouldRemoveBank()
+        {
+            var dbContext = YourMoney.Tests.Base.BaseServiceTests.GetDatabase();
+
+            var item = new Bank()
+            {
+                Id = 1,
+                Name = "ProCredit"
+            };
+            var items = new BanksService(dbContext);
+            items.Add(item.Name);
+
+            items.Remove(item.Id);
+
+            var result = dbContext.Banks.FirstOrDefault();
+
+            Assert.Null(result);
+        }
     }
 }
