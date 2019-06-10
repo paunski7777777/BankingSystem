@@ -14,7 +14,11 @@ namespace Tests
         [Test]
         public void AddMethodShouldAddBank()
         {
-            var dbContext = GetDatabase();
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseInMemoryDatabase(databaseName: "AddBank_Banks_DB")
+                .Options;
+
+            var dbContext = new ApplicationDbContext(options);
 
             var item = new Bank()
             {
@@ -32,13 +36,18 @@ namespace Tests
         [Test]
         public void EditMethodShouldEditBank()
         {
-            var dbContext = GetDatabase();
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseInMemoryDatabase(databaseName: "AddBank_Banks_DB")
+                .Options;
+
+            var dbContext = new ApplicationDbContext(options);
 
             var item = new Bank()
             {
                 Id = 1,
                 Name = "ProCredit"
             };
+
             var items = new BanksService(dbContext);
             items.Add(item.Name);
             items.Edit(item.Id, "DSK");
@@ -51,7 +60,10 @@ namespace Tests
         [Test]
         public void RemoveMethodShouldRemoveBank()
         {
-            var dbContext = GetDatabase();
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseInMemoryDatabase(databaseName: "AddBank_Banks_DB")
+                .Options;
+            var dbContext = new ApplicationDbContext(options);
 
             var item = new Bank()
             {
@@ -63,7 +75,7 @@ namespace Tests
 
             items.Remove(item.Id);
 
-            var result = dbContext.Banks.FirstOrDefault();
+            var result = dbContext.Banks.FirstOrDefault(b => b.Id == item.Id);
 
             Assert.Null(result);
 
@@ -71,18 +83,23 @@ namespace Tests
         [Test]
         public void ExistByIdMethodShouldCheckIfThereIsBankWithThatId()
         {
-            var dbContext = GetDatabase();
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseInMemoryDatabase(databaseName: "AddBank_Banks_DB")
+                .Options;
 
-            var item = new Bank()
+            var dbContext = new ApplicationDbContext(options);
+
+            var bank = new Bank()
             {
                 Id = 1,
                 Name = "ProCredit"
             };
 
-            var items = new BanksService(dbContext);
-            items.Add(item.Name);
+            var banksService = new BanksService(dbContext);
 
-            var result = items.ExistsById(item.Id);
+            banksService.Add(bank.Name);
+
+            var result = banksService.ExistsById(bank.Id);
 
             Assert.True(result);
         }
@@ -90,18 +107,22 @@ namespace Tests
         [Test]
         public void ExistByNameMethodShouldCheckIfThereIsBankWithThatName()
         {
-            var dbContext = GetDatabase();
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+                .UseInMemoryDatabase(databaseName: "ExistsNameBank_Banks_DB")
+                .Options;
 
-            var item = new Bank()
+            var dbContext = new ApplicationDbContext(options);
+
+            var bank = new Bank()
             {
                 Id = 1,
                 Name = "ProCredit"
             };
 
-            var items = new BanksService(dbContext);
-            items.Add(item.Name);
+            var banksService = new BanksService(dbContext);
+            banksService.Add(bank.Name);
 
-            var result = items.ExistsByName(item.Name);
+            var result = banksService.ExistsByName(bank.Name);
 
             Assert.True(result);
         }

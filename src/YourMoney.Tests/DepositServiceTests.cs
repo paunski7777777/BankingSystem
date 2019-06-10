@@ -16,8 +16,6 @@ namespace YourMoney.Tests
 {
     public class DepositServiceTests : BaseServiceTests
     {
-        private readonly IBanksService bankService;
-
         [Test]
         public void AddMethodShouldAddDeposit()
         {
