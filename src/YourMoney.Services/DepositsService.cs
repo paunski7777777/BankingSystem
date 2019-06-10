@@ -109,7 +109,8 @@
             this.SetAmountForDeposits(amount, deposits);
             this.SetInterestValueByDepositTerm(depositTerm, deposits);
 
-            deposits = deposits.Where(d => d.MinimumAmount <= amount && d.MaximumAmount >= amount);
+            deposits = deposits.Where(d => (d.MinimumAmount <= amount && d.MaximumAmount >= amount) 
+                                         ||(d.MinimumAmount <= amount && d.MaximumAmount == 0));
 
             deposits = this.FilterDepositsByDepositProperties(interestPayment, depositFor, interestType, increasingAmount, overdraftOpportunity, creditOpportunity, deposits);
 
@@ -343,7 +344,6 @@
 
             this.dbContext.Update(deposit);
             this.dbContext.SaveChanges();
-
         }
     }
 }
